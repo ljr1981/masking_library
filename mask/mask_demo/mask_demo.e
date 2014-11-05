@@ -1,5 +1,40 @@
-${NOTE_KEYWORD}
-	copyright: "Copyright (c) 2010-${YEAR}"
+note
+	description : "mask_demo application root class"
+	date        : "$Date: 2014-03-19 20:54:25 -0400 (Wed, 19 Mar 2014) $"
+	revision    : "$Revision: 8864 $"
+
+class
+	MASK_DEMO
+
+inherit
+	ARGUMENTS
+
+create
+	make
+
+feature {NONE} -- Initialization
+
+	make
+			-- Run application.
+		do
+			create application
+			create main_window.make_with_title ("Masking Demo")
+
+			main_window.set_size (800, 600)
+			application.post_launch_actions.extend (agent main_window.show)
+			main_window.close_request_actions.extend (agent application.destroy)
+
+			application.launch
+		end
+
+feature {NONE} -- Implementation
+
+	application: EV_APPLICATION
+
+	main_window: MAIN_WINDOW
+
+;note
+	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT
@@ -40,4 +75,4 @@ ${NOTE_KEYWORD}
 			3587 Oakcliff Road, Doraville, GA 30340
 			Telephone 770-734-9222, Fax 770-734-0556
 		]"
-
+end

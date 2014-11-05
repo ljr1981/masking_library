@@ -31,6 +31,17 @@
 		<library name="test_set_bridge" location="..\test_extension\test_set_bridge.ecf"/>
 		<cluster name="mask" location=".\" recursive="true"/>
 	</target>
+	<target name="mask_demo" extends="mask">
+		<root class="MASK_DEMO" feature="make"/>
+		<file_rule>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/.svn$</exclude>
+			<exclude>/.git$</exclude>
+			<exclude>/tests$</exclude>
+			<include>/mask_demo$</include>
+		</file_rule>
+	</target>
 	<target name="test" extends="mask">
 		<root class="ROOT_CLASS_FOR_TESTS" feature="make"/>
 		<file_rule>
