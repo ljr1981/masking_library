@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-12-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-12-0 http://www.eiffel.com/developers/xml/configuration-1-12-0.xsd" name="mask" uuid="86AE9A84-8EE2-4B2E-8416-66F21C347BC7" library_target="mask">
-	<description>GUI Masking Library</description>
-	<target name="test">
-		<root class="ROOT_CLASS_FOR_TESTS" feature="make"/>
-		<option full_class_checking="true" void_safety="transitional" syntax="provisional">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-13-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-13-0 http://www.eiffel.com/developers/xml/configuration-1-13-0.xsd" name="mask" uuid="86AE9A84-8EE2-4B2E-8416-66F21C347BC7" library_target="mask">
+	<description>Eiffel Text Masking Library</description>
+	<target name="mask">
+		<root all_classes="true"/>
+		<version major="1" minor="0" release="0" build="1"/>
+		<file_rule>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/.svn$</exclude>
+			<exclude>/.git$</exclude>
+			<exclude>/tests$</exclude>
+		</file_rule>
+		<option warning="true" void_safety="transitional" syntax="provisional">
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
 		</option>
 		<library name="base" location="$ISE_LIBRARY\library\base\base-safe.ecf"/>
@@ -13,9 +21,6 @@
 			</option>
 		</library>
 		<library name="i18n" location="$ISE_LIBRARY\library\i18n\i18n-safe.ecf"/>
-		<library name="test_extension" location="..\test_extension\test_extension.ecf"/>
-		<library name="test_set_bridge" location="..\test_extension\test_set_bridge.ecf"/>
-		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
 		<library name="thread" location="$ISE_LIBRARY\library\thread\thread-safe.ecf"/>
 		<library name="time" location="$ISE_LIBRARY\library\time\time-safe.ecf"/>
 		<library name="vision2" location="$ISE_LIBRARY\library\vision2\vision2-safe.ecf">
@@ -23,26 +28,18 @@
 				<assertions precondition="true"/>
 			</option>
 		</library>
-		<cluster name="mask" location=".\source\" recursive="true">
-			<file_rule>
-				<exclude>/EIFGENs$</exclude>
-				<exclude>/CVS$</exclude>
-				<exclude>/.svn$</exclude>
-			</file_rule>
-		</cluster>
-		<cluster name="test_specification" location=".\test\specification\" recursive="true"/>
-		<cluster name="test_support" location=".\test\support\" recursive="true"/>
-		<cluster name="tests" location=".\test\tests\" recursive="true"/>
+		<library name="test_set_bridge" location="..\test_extension\test_set_bridge.ecf"/>
+		<cluster name="mask" location=".\" recursive="true"/>
 	</target>
-	<target name="mask" extends="test">
+	<target name="test" extends="mask">
+		<root class="ROOT_CLASS_FOR_TESTS" feature="make"/>
 		<file_rule>
-			<exclude>tests</exclude>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/.svn$</exclude>
 		</file_rule>
-		<option warning="true" full_class_checking="true" cat_call_detection="false" is_attached_by_default="true" void_safety="transitional" syntax="provisional">
-			<assertions/>
-		</option>
-	</target>
-	<target name="integration" extends="mask">
-		<root all_classes="true"/>
+		<library name="test_extension" location="..\test_extension\test_extension.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
+		<cluster name="tests" location=".\tests\" recursive="true"/>
 	</target>
 </system>
