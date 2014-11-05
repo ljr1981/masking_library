@@ -1,0 +1,1091 @@
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000050A0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FF0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005060448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000050F0448>                         Eiffel run-time panic.        Panic
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005090448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FD0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+
+mask: system execution failed.
+Following is the set of recorded exceptionsFollowing is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information.
+NB: The raised panic may have induced completely inconsistent information:
+
+:
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+EQA_EVALUATOR       root's creation        illegal opcode:              
+-------------------------------------------------------------------------------
+<00000000050F0448>                         Eiffel run-time panic.        Panic
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005000448>  
+                       Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FA0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+
+mask: PANIC: illegal opcode ...
+<00000000051A0448>  
+mask: system execution failed.
+                       Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+Following is the set of recorded exceptions
+.
+NB: The raised panic may have induced completely inconsistent informationmask: dumping core to generate debugging information...
+:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005190448>                         Eiffel run-time panic.        Panic
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F60448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions
+mask: PANIC: illegal opcode ...
+.
+NB: The raised panic may have induced completely inconsistent information:
+
+k: system execution failed.
+Following is the set of recorded exceptions-------------------------------------------------------------------------------
+.
+NB: The raised panic may have induced completely inconsistent information:
+
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+EQA_EVALUATOR       root's creation        illegal opcode:              
+-------------------------------------------------------------------------------
+<0000000004E60448>  
+mask: PANIC: illegal opcode ...
+EQA_EVALUATOR       root's creation        illegal opcode:              
+
+mask: system execution failed.
+time panic.        Panic
+-------------------------------------------------------------------------------
+<0000000004E50448>  
+Following is the set of recorded exceptions                       Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+mask: dumping core to generate debugging information...
+.
+NB: The raised panic may have induced completely inconsistent information
+mask: dumping core to generate debugging information...
+:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005200448>                         Eiffel run-time panic.        Panic
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005100448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005020448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005120448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004DC0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005110448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000050E0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FE0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+
+
+mask: system execution failed.
+mask: dumping core to generate debugging information...
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004ED0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004E50448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000053F0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+Class / Object      Routine                Nature of exception           Effect
+
+mask: system execution failed.
+-------------------------------------------------------------------------------
+Following is the set of recorded exceptionsEQA_EVALUATOR       root's creation        illegal opcode:              
+.
+NB: The raised panic may have induced completely inconsistent information<00000000051C0448>  :
+
+                       Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+
+mask: PANIC: illegal opcode ...
+mask: dumping core to generate debugging information...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051C0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FB0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005090448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F40448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F70448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005090448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+
+
+mask: system execution failed.
+mask: dumping core to generate debugging information...
+Following is the set of recorded exceptions
+mask: PANIC: illegal opcode ...
+.
+NB: The raised panic may have induced completely inconsistent information
+mask: system execution failed.
+:
+
+Following is the set of recorded exceptions-------------------------------------------------------------------------------
+.
+NB: The raised panic may have induced completely inconsistent informationClass / Object      Routine                Nature of exception           Effect
+:
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+Class / Object      Routine                Nature of exception           Effect
+<0000000005000448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F10448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005140448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004EB0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F30448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+
+mask: dumping core to generate debugging information...
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F30448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000050B0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000000E80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000050F0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004F80448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005170448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {MASK_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+Catcall detected in {EXTENDED_TEST_SET}.diffs for arg#2: expected STRING_8 but got STRING_32
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005250448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000005250448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000000E70448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000053D0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000000EB0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000000E20448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004FB0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004EE0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004ED0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004EE0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051B0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<00000000051F0448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
+
+mask: PANIC: illegal opcode ...
+
+mask: system execution failed.
+Following is the set of recorded exceptions.
+NB: The raised panic may have induced completely inconsistent information:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+EQA_EVALUATOR       root's creation        illegal opcode:              
+<0000000004E10448>                         Eiffel run-time panic.        Bye
+-------------------------------------------------------------------------------
+
+mask: dumping core to generate debugging information...
