@@ -22,6 +22,7 @@ feature {NONE} -- Documentation
 
 	library_documentation: detachable DOC_LIBRARY_MASK
 			-- Library documentation for masking.
+			-- This reference brings the DOC_* classes in-system.
 
 ;note
 	operations: "[
