@@ -32,7 +32,7 @@ note
 			only those characters allowed by the mask. The mask is also used to transform
 			the data obtained from a data source to the string which will be set into the
 			text field and to transform the actual string in the text field to the data
-			expected by the validator and model object.
+			expected by the validator and model object (see glossary for definitions).
 
 			Example: {STRING_VALUE_INPUT_MASK}
 			==================================
@@ -123,6 +123,18 @@ note
 		There is a demonstration project you can access through the "mask_demo" target of this ECF.
 		]"
 	operation: "See Documentation Navigation Operational Notes at the end of this class."
+	glossary: "[
+		Glossary of Terms
+		]"
+	term: "[
+		Model Object: A model object is a type of object that contains the data of an application, 
+			provides access to that data, and implements logic to manipulate the data. Model objects 
+			play one of the three roles defined by the Model-View-Controller design pattern.
+		]"
+	term: "[
+		Validator: Any object routine(s) responsible for data validation of user editable input. The
+			validation of data may happen on either the masked or unmasked data.
+		]"
 	date: "$Date: 2014-11-03 16:42:20 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10183 $"
 

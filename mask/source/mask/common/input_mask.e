@@ -5,10 +5,14 @@ note
 		]"
 	purpose: "[
 		Some text fields (where user input is represented as a {STRING_32}) are represented 
-		in the object model as another type. Therefore, some conversion is needed to get 
+		in the Model object as another type. Therefore, some conversion is needed to get 
 		the data to/from the widget (e.g. {EV_TEXT_FIELD}).  For example, {INTEGER_32} values 
-		in the model are entered by the user in a text field (represented in the gui 
+		in the Model are entered by the user in a text field (represented in the GUI 
 		as a {STRING_32}).
+		
+		Example:
+		{PERSON}.age: INTEGER 	<-- Model object with an INTEGER for `age' of {PERSON}
+		{EV_TEXT_FIELD}.text	<-- Text representation of `age' in GUI
 		
 		For some fields it is advantageous to filter user input, for example there is no 
 		reason to allow the user to type an 'a' in a field which is to be used only for 
