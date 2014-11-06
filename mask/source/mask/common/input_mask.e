@@ -183,7 +183,7 @@ feature -- Basic Operations
 			-- Mask `a_value' as `masked_string'.
 			-- Provide `error_message' if `a_value' does not conform to mask specification or is invalid.
 			-- Empty `error_message' indicates `a_value' conforms to mask specification and is fully valid
-			--| DATA_CONSTRAINT is not checked. `a_value' will come from the database and will "fit" automatically.
+			--| DATA_CONSTRAINT is not checked. `a_value' will come from a data source and will "fit" automatically.
 		require
 			not_is_invalid: not is_invalid
 		do
@@ -192,8 +192,9 @@ feature -- Basic Operations
 
 	remove (a_masked_string: READABLE_STRING_GENERAL; a_constraint: detachable CON): TUPLE [value: V; error_message: STRING_32]
 			-- Remove mask from `a_masked_string' and return `value'.
-			-- Provide `error_message' if `a_string' does not conform to mask specification, will not fit in database column, or is invalid
-			-- Empty `error_message' indicates `a_value' conforms to mask specification, will fit in database column, and is fully valid.
+			-- Provide `error_message' if `a_string' does not conform to mask specification, will not fit in target data sink (e.g.
+			---	a relational database column), or is invalid
+			-- Empty `error_message' indicates `a_value' conforms to mask specification, will fit in target data sink, and is fully valid.
 		require
 			not_is_invalid: not is_invalid
 			is_valid_constraint: attached a_constraint implies is_valid_constraint (a_constraint)

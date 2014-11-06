@@ -120,6 +120,11 @@ feature -- Settings
 			end
 		end
 
+	on_enter
+		do
+			
+		end
+
 feature -- Basic Operations
 
 	remove_insertion_point_left_agent

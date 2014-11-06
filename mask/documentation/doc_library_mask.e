@@ -7,10 +7,10 @@ note
 		Library documentation for the masking library.
 		]"
 	purpose: "[
-		To provide text masking facilities to classes derived from {EV_TEXTABLE} (those having text).
+		To provide text masking facilities to classes derived from {EV_TEXT_COMPONENT} (those having text).
 		]"
 	how: "[
-		By a factory, which takes some {EV_TEXTABLE} (e.g. {EV_TEXT_FIELD}) and hooking up a "mask" and
+		By a factory, which takes some {EV_TEXT_COMPONENT} (e.g. {EV_TEXT_FIELD}) and hooking up a "mask" and
 		then watching user-interaction and responding to it.
 		
 		A "mask-string" tells the factory what form of "mask" to apply. For example, a "(999) 999-9999"
@@ -19,18 +19,18 @@ note
 		cannot type characters into other locations "masked-off" by "-", "(", and ")". Neither can the
 		user type anything other than numbers in each position where a "9" appears (in the masks above).
 		
-		After the user has typed whatever they like, your program can examine the EV_TEXTABLE GUI
+		After the user has typed whatever they like, your program can examine the EV_TEXT_COMPONENT GUI
 		control. It can use either the masked value (e.g. "(999) 999-9999") or the "unmasked" value
 		(e.g. "(511) 455-5241" --> "5114555241").
 		]"
 	tutorial: "[
-			{EV_TEXTABLE} Masking
+			{EV_TEXT_COMPONENT} Masking
 			===================
 
-			An {EV_TEXTABLE} "mask" is a string which specifies how the characters within
+			An {EV_TEXT_COMPONENT} "mask" is a string which specifies how the characters within
 			a text field are to be displayed. The text field will allow the user to input
 			only those characters allowed by the mask. The mask is also used to transform
-			the data obtained from the database to the string which will be set into the
+			the data obtained from a data source to the string which will be set into the
 			text field and to transform the actual string in the text field to the data
 			expected by the validator and model object.
 
@@ -47,7 +47,8 @@ note
 			Feature {STRING_VALUE_INPUT_MASK}.make indicates that a format specification will
 			be provided for each character position in the text field string. User input will
 			only be allowed at mask positions which are "open" to user input. An exception will
-			be raised if the number of "open" characters exceeds the width of the database column.
+			be raised if the number of "open" characters exceeds the width of a data source 
+			(e.g. possibly the width of a column in a relational database).
 			
 			Examples:
 			* U.S. Phone Number:	"(999) 999-9999"
@@ -59,7 +60,7 @@ note
 
 			Feature {STRING_VALUE_INPUT_MASK}.make_repeating indicates that a single format Specification
 			Character will be provided which will be repeated for all positions in the text
-			field string. User input will not be restricted to the width of the database column,
+			field string. User input will not be restricted to the width of the data source constraint,
 			but the input will be marked as invalid if it is too long.
 
 			The '\' character may be used to escape any format specification

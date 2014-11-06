@@ -25,6 +25,22 @@ feature -- Tests
 			assert_strings_equal ("empty_at_creation", "", l_field.text)
 		end
 
+	masking_example_decimal
+			-- Demonstrates basic usage of an {DECIMAL} mask.
+		local
+			l_mask: DECIMAL_VALUE_INPUT_MASK
+			l_field: EV_TEXT_FIELD
+		do
+				-- Create mask and field.
+			create l_mask.make (2, 5) -- like $999.99 is our goal (5 total digits, 2 decimal places)
+			create l_field
+				-- Apply mask to field (e.g. mask is a factory that know how to set itself up on the widget).
+			l_mask.initialize_masking_widget_events (l_field)
+			assert_strings_equal ("empty_at_creation", "", l_field.text)
+			l_field.set_text ("12345")
+--			assert_strings_equal ("123.45", "123.45", l_mask.value_to_string (l_field.text))
+		end
+
 	test_integer_mask
 			-- Test behavior of INTEGER_VALUE_INPUT_MASK
 		note
