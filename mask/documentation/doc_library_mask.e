@@ -1,68 +1,87 @@
 note
 	title: "Masking Library Documentation"
 	warning: "[
-		Please read the `readme.txt' file included with this library before attempting to learn this library.
-		
-		This library is by no means complete.  The features that are currently working
-		were implemented based only on the needs of one specific application.  There is
-		more work to be done. 
-		
-		The documentation is also incomplete in the sense of having two audiences. You
-		will fit into one of the two categories: A) Re-use Consumer or B) Maintenance.
-		As a re-use consumer of this library, you ought to find sufficient documentation
-		that is learnable with examples to provide rapid learning and successful use.
-		As a maintenance programmer, you will find less than sufficient documentation.
-		This is because this library was largely developed to its current level before
-		we became aware of faults in our documentation process and style. We are now working
-		to correct these faults internally in our own systems. What you now see and read
-		here is the sum of our current progress as applied to this library, but ought to
-		be sufficient to your needs as a re-use-consumer user of this library.
+		This library meets the needs of its original author, but may not meet the needs of everyone.
 		]"
 	description: "[
 		Library documentation for the masking library.
 		]"
 	purpose: "[
-		Exposes a set of masks for use in masking text fields.
+		To provide text masking facilities to classes derived from {EV_TEXTABLE} (those having text).
 		]"
 	how: "[
-		By allowing programmers to enforce input rules and a structure on text fields.
+		By a factory, which takes some {EV_TEXTABLE} (e.g. {EV_TEXT_FIELD}) and hooking up a "mask" and
+		then watching user-interaction and responding to it.
+		
+		A "mask-string" tells the factory what form of "mask" to apply. For example, a "(999) 999-9999"
+		might represent a common U.S. telephone number. A "999-99-9999" might represent a common U.S.
+		Social Security Number. Thus, the user can type numeric characters (e.g. "9" mask code), but
+		cannot type characters into other locations "masked-off" by "-", "(", and ")". Neither can the
+		user type anything other than numbers in each position where a "9" appears (in the masks above).
+		
+		After the user has typed whatever they like, your program can examine the EV_TEXTABLE GUI
+		control. It can use either the masked value (e.g. "(999) 999-9999") or the "unmasked" value
+		(e.g. "(511) 455-5241" --> "5114555241").
 		]"
 	tutorial: "[
-			Text Field Masking
+			{EV_TEXTABLE} Masking
+			===================
 
-			A text field mask is a string which specifies how the characters within a text field are to be
-			displayed. The text field will allow the user to input only those characters allowed by the mask.
-			The mask is also used to transform the data obtained from the database to the string which will
-			be set into the text field and to transform the actual string in the text field to the data
+			An {EV_TEXTABLE} "mask" is a string which specifies how the characters within
+			a text field are to be displayed. The text field will allow the user to input
+			only those characters allowed by the mask. The mask is also used to transform
+			the data obtained from the database to the string which will be set into the
+			text field and to transform the actual string in the text field to the data
 			expected by the validator and model object.
 
-			STRING_VALUE_INPUT_MASK
+			Example: {STRING_VALUE_INPUT_MASK}
+			==================================
+			
+			The mask behavior and mask syntax depend on the type of the field being masked.
 
-			The behavior and mask syntax depend on the type of the field being masked as described below:
+			Creation of a {TEXT_INPUT_MASK} can be done with `make' or `make_repeating'.
+			
+			Full Mask:
+			==========
 
-			Creation of a TEXT_INPUT_MASK can be done with `make' or `make_repeating'.  See examples in class 
-			header of STRING_VALUE_INPUT_MASK.
+			Feature {STRING_VALUE_INPUT_MASK}.make indicates that a format specification will
+			be provided for each character position in the text field string. User input will
+			only be allowed at mask positions which are "open" to user input. An exception will
+			be raised if the number of "open" characters exceeds the width of the database column.
+			
+			Examples:
+			* U.S. Phone Number:	"(999) 999-9999"
+			* U.S. Soc Sec Number:	"999-99-9999"
+			* Visa Credit Card#:	"9999-9999-9999-9999"
+			
+			Repeating Mask:
+			===============
 
-			Feature `make' indicates that a format specification will be provided for each character position
-			in the text field string. User input will only be allowed at mask positions which are "open" to
-			user input. An exception will be raised if the number of "open" characters exceeds the width of
-			the database column.
-
-			Feature `make_repeating' indicates that a single format specification will be provided which will
-			be repeated for all positions in the text field string. User input will not be restricted to the
-			width of the database column, but the input will be marked as invalid if it is too long.
+			Feature {STRING_VALUE_INPUT_MASK}.make_repeating indicates that a single format Specification
+			Character will be provided which will be repeated for all positions in the text
+			field string. User input will not be restricted to the width of the database column,
+			but the input will be marked as invalid if it is too long.
 
 			The '\' character may be used to escape any format specification
 			characters with special meaning (including '\').
+			
+			Examples:
+			* U.S. Postal Address:	(several fields with their own mask)
+									"9" 	<-- Street number: Nothing but numbers allowed as input
+									"K"		<-- Street name: Alphabetic, numbers, dashes as input
+									"!A"	<-- City: Uppercase Alphabetic characters as input
+									"!A"	<-- State: Uppercase Alphabetic characters as input
+									"9"		<-- ZIP Code: Numbers only
 
-			String Mask Specification Characters
-
-			'!' - Force input to upper case
+			String Mask Specification Characters:
+			=====================================
+			
+			'!' - Force input to upper case (insert once at the start of your mask, applies to all)
 
 			'#' - Only digits and spaces are allowed, an error message of missing required characters is
-					reported to the user
+					reported to the user.
 
-			'_' - only digits and spaces are allowed, no error message reported for having spaces
+			'_' - only digits and spaces are allowed, no error message reported for having spaces.
 
 			'9' - Only digits are allowed
 
@@ -71,7 +90,7 @@ note
 			'K' - Only uppercase alphabetic, numeric, and dash characters are allowed.
 
 			'N' - Only letters and digits are allowed. (e.g. no special characters).
-
+					
 			'U' - Only alphabetic characters are allowed (forced to upper case and others converted
 					to spaces).
 
@@ -89,19 +108,18 @@ note
 			will not be allowed to edit the character.
 
 			Example String Masks:
+			=====================
 
 			Unrestricted mask: "X"
 
-			Social Security Number: "###-##-####"
+			Social Security Number: "999-99-9999" (full mask)
 
-			US Phone Number: "(###) ###-####"
+			US Phone Number: "(999) 999-9999" (full mask)
 
-			Force all characters to upper case: "!"
-
-			NUMERIC_VALUE_INPUT_MASK (descendants: INTEGER, DECIMAL, CURRENCY, PERCENT)
+			Force all characters to upper case: "!" (repeating mask)
 		]"
 	demo: "[
-		There is a mask demo project located in the mask_demo folder under the root mask directory.
+		There is a demonstration project you can access through the "mask_demo" target of this ECF.
 		]"
 	operation: "See Documentation Navigation Operational Notes at the end of this class."
 	date: "$Date: 2014-11-03 16:42:20 -0500 (Mon, 03 Nov 2014) $"
@@ -183,41 +201,6 @@ feature {NONE} -- Documentation
 		end
 
 note
-	operations: "[
-		This note entry is here to offer you instruction on how to effectively and quickly
-		navigate through the documentation of this library and its clusters and classes.
-		
-		Virtues of Clickable-view & Notes
-		=================================
-		When viewing notes in the editor, embedded references which are Pick-and-Droppable in
-		the Clickable-view are not when in the general editing view. Moreover, only classes
-		which are "in-system" will have their features, clients, supplies, and so on viewable
-		in the various tools. Therefore, based on these items, you will want to pick-and-drop
-		"in-system" "classes-of-interest" (your interest) into the Class-tool and select the
-		Clickable-view tool as your primary reader -OR- you will want to change the editor to
-		the Clickable-view in order to explore (i.e. you are learning and not coding, so you
-		want to use the Clickable-view in the editor to explore with while learning).
-		
-		One will find an advantage by viewing the class and its notes in the editor under the
-		Clickable-view. When this is so, you may pick and drop a CLASS or Feature reference to
-		the Class or Feature tool in this IDE.
-		
-		Known Editor Bugs
-		=================
-		There are presently bugs in the Eiffel Studio editor that work against good documentation
-		exploration in the Clickable-view. Primarily, Tab characters and Unicode characters will
-		be removed from the view in Clickable-view, but are shown in the Editable-view. Clearly,
-		this behavior is against the purpose of the Clickable-view.
-		]"
-	glossary: "Definition of Terms"
-	term: "[
-		Clickable-view: Pick-and-drop a CLASS to the Class-tool and select the Clickable-view
-		]"
-	term: "[
-		In-system: A class is termed "in-system" when it is referenced by a Client, which is
-		in-turn referenced by another Client, and all the way back to the "root-class" of the
-		system (see Project Settings or ECF file for root-class definition).
-		]"
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking

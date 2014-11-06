@@ -1,4 +1,4 @@
-note 
+note
 	description: "Tests of masks descending from NUMERIC_VALUE_INPUT_MASK"
 	date: "$Date: 2014-11-03 15:29:49 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10181 $"
@@ -11,6 +11,20 @@ inherit
 
 feature -- Tests
 
+	masking_example_integer
+			-- Demonstrates basic usage of an {INTEGER} mask.
+		local
+			l_mask: INTEGER_VALUE_INPUT_MASK
+			l_field: EV_TEXT_FIELD
+		do
+				-- Create mask and field.
+			create l_mask.make (4)
+			create l_field
+				-- Apply mask to field (e.g. mask is a factory that know how to set itself up on the widget).
+			l_mask.initialize_masking_widget_events (l_field)
+			assert_strings_equal ("empty_at_creation", "", l_field.text)
+		end
+
 	test_integer_mask
 			-- Test behavior of INTEGER_VALUE_INPUT_MASK
 		note
@@ -21,9 +35,9 @@ feature -- Tests
 		do
 			create l_mask.make (9)
 			--| Obtain csv file from:
-			--| ".\test\specification\integer.csv"
+			--| ".\tests\specification\integer.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\integer.csv")
+			create l_file.make_open_read (".\tests\specification\integer.csv")
 			test_mask (l_file, l_mask, keys_tested_in_integer_tests)
 		end
 
@@ -37,15 +51,15 @@ feature -- Tests
 		do
 			create l_mask.make (4, 9)
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_mask_not_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_mask_not_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_mask_not_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_mask_not_is_nan_valid.csv")
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 			--|
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_mask_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_mask_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_mask_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_mask_is_nan_valid.csv")
 			l_mask.set_is_nan_valid (True)
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 		end
@@ -60,15 +74,15 @@ feature -- Tests
 		do
 			create l_mask.make (4, 9)
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_percent_mask_not_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_percent_mask_not_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_percent_mask_not_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_percent_mask_not_is_nan_valid.csv")
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 			--|
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_percent_mask_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_percent_mask_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_percent_mask_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_percent_mask_is_nan_valid.csv")
 			l_mask.set_is_nan_valid (True)
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 		end
@@ -83,15 +97,15 @@ feature -- Tests
 		do
 			create l_mask.make_currency (9)
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_currency_mask_not_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_currency_mask_not_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_currency_mask_not_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_currency_mask_not_is_nan_valid.csv")
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 			--|
 			--| Obtain csv file from:
-			--| ".\test\specification\decimal_currency_mask_is_nan_valid.csv"
+			--| ".\tests\specification\decimal_currency_mask_is_nan_valid.csv"
 			--| Import it into a Google Spreadsheet to modify, then export back to csv.
-			create l_file.make_open_read (".\test\specification\decimal_currency_mask_is_nan_valid.csv")
+			create l_file.make_open_read (".\tests\specification\decimal_currency_mask_is_nan_valid.csv")
 			l_mask.set_is_nan_valid (True)
 			test_mask (l_file, l_mask, keys_tested_in_numeric_tests)
 		end
@@ -595,41 +609,6 @@ feature {NONE} -- Implementation
 		end
 
 note
-	operations: "[
-		This note entry is here to offer you instruction on how to effectively and quickly
-		navigate through the documentation of this library and its clusters and classes.
-		
-		Virtues of Clickable-view & Notes
-		=================================
-		When viewing notes in the editor, embedded references which are Pick-and-Droppable in
-		the Clickable-view are not when in the general editing view. Moreover, only classes
-		which are "in-system" will have their features, clients, supplies, and so on viewable
-		in the various tools. Therefore, based on these items, you will want to pick-and-drop
-		"in-system" "classes-of-interest" (your interest) into the Class-tool and select the
-		Clickable-view tool as your primary reader -OR- you will want to change the editor to
-		the Clickable-view in order to explore (i.e. you are learning and not coding, so you
-		want to use the Clickable-view in the editor to explore with while learning).
-		
-		One will find an advantage by viewing the class and its notes in the editor under the
-		Clickable-view. When this is so, you may pick and drop a CLASS or Feature reference to
-		the Class or Feature tool in this IDE.
-		
-		Known Editor Bugs
-		=================
-		There are presently bugs in the Eiffel Studio editor that work against good documentation
-		exploration in the Clickable-view. Primarily, Tab characters and Unicode characters will
-		be removed from the view in Clickable-view, but are shown in the Editable-view. Clearly,
-		this behavior is against the purpose of the Clickable-view.
-		]"
-	glossary: "Definition of Terms"
-	term: "[
-		Clickable-view: Pick-and-drop a CLASS to the Class-tool and select the Clickable-view
-		]"
-	term: "[
-		In-system: A class is termed "in-system" when it is referenced by a Client, which is
-		in-turn referenced by another Client, and all the way back to the "root-class" of the
-		system (see Project Settings or ECF file for root-class definition).
-		]"
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking

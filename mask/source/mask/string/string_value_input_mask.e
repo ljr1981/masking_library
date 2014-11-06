@@ -1,16 +1,22 @@
-﻿note  
+﻿note
 	description: "[
-			Specialization of {TEXT_INPUT_MASK} which handles READABLE_STRING_GENERAL input.
+			Specialization of {TEXT_INPUT_MASK} which handles {READABLE_STRING_GENERAL} input.
 			]"
 	purpose: "[
-			This mask is used as a variable input mask to filter and format input in the form of strings.
+			To mask user {STRING} input.
 			]"
 	how: "[
-			The String Value Input Mask uses a string `mask specification' to determine what type of character can be placed in each of the
-			allowed spaces in the field.
+			By applying a "mask-specification" as either a full or fixed mask or a repeating mask.
+			
+			A full or fixed mask specifies what characters the user can input at each input position
+			in the string.
+			
+			A repeating mask specifies what characters the user can input at any and all positions in
+			the input string.
 			]"
 	examples: "[
-			See {STRING_MASK_TEST_SET}.masking_example
+			See {STRING_MASK_TEST_SET}.masking_example (available for pick-and-drop from masking library 
+			`test' target Clickable-view)
 			
 			┌───────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────┐
 			│create string_value_input_mask.make_repeating ("!") 		│forces all alphabetic characters to uppercase.
@@ -107,41 +113,6 @@ feature {NONE} -- Implementation
 		end
 
 note
-	operations: "[
-		This note entry is here to offer you instruction on how to effectively and quickly
-		navigate through the documentation of this library and its clusters and classes.
-		
-		Virtues of Clickable-view & Notes
-		=================================
-		When viewing notes in the editor, embedded references which are Pick-and-Droppable in
-		the Clickable-view are not when in the general editing view. Moreover, only classes
-		which are "in-system" will have their features, clients, supplies, and so on viewable
-		in the various tools. Therefore, based on these items, you will want to pick-and-drop
-		"in-system" "classes-of-interest" (your interest) into the Class-tool and select the
-		Clickable-view tool as your primary reader -OR- you will want to change the editor to
-		the Clickable-view in order to explore (i.e. you are learning and not coding, so you
-		want to use the Clickable-view in the editor to explore with while learning).
-		
-		One will find an advantage by viewing the class and its notes in the editor under the
-		Clickable-view. When this is so, you may pick and drop a CLASS or Feature reference to
-		the Class or Feature tool in this IDE.
-		
-		Known Editor Bugs
-		=================
-		There are presently bugs in the Eiffel Studio editor that work against good documentation
-		exploration in the Clickable-view. Primarily, Tab characters and Unicode characters will
-		be removed from the view in Clickable-view, but are shown in the Editable-view. Clearly,
-		this behavior is against the purpose of the Clickable-view.
-		]"
-	glossary: "Definition of Terms"
-	term: "[
-		Clickable-view: Pick-and-drop a CLASS to the Class-tool and select the Clickable-view
-		]"
-	term: "[
-		In-system: A class is termed "in-system" when it is referenced by a Client, which is
-		in-turn referenced by another Client, and all the way back to the "root-class" of the
-		system (see Project Settings or ECF file for root-class definition).
-		]"
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking
