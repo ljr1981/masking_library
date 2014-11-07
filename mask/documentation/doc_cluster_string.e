@@ -13,7 +13,7 @@ note
 	tutorial: "[
 		Text Patterns & Masking
 		=======================
-		User editable input text can be everthing from totally ad-hoc to highly controlled
+		User editable input text can be everything from totally ad-hoc to highly controlled
 		by some rigid pattern or "mask". The String Cluster classes facilitate these
 		user-input and editing-control masking needs.
 		
