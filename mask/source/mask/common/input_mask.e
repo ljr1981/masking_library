@@ -4,15 +4,17 @@ note
 		underlaying Model and presentation GUI control (e.g. {ANY} --> {STRING}|{STRING_32}).
 		]"
 	purpose: "[
-		Some text fields (where user input is represented as a {STRING_32}) are represented 
-		in the Model object as another type. Therefore, some conversion is needed to get 
-		the data to/from the widget (e.g. {EV_TEXT_FIELD}).  For example, {INTEGER_32} values 
-		in the Model are entered by the user in a text field (represented in the GUI 
-		as a {STRING_32}).
+		To provide a GUI "mask" when presenting underlaying Model data to the user.
 		
+		To provide a structured "mask" for user-interaction with the presented Model data.
+		
+		To provide type conversion between the {STRING_32} presentation in a {EV_TEXT_COMPONENT}.
+				
 		Example:
 		{PERSON}.age: INTEGER 	<-- Model object with an INTEGER for `age' of {PERSON}
 		{EV_TEXT_FIELD}.text	<-- Text representation of `age' in GUI
+		
+		To provide a level of "filtering" of user-input
 		
 		For some fields it is advantageous to filter user input, for example there is no 
 		reason to allow the user to type an 'a' in a field which is to be used only for 
