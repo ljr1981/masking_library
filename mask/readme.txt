@@ -4,6 +4,9 @@ Documentation for this library can be found in the DOC_* classes (start with DOC
 
 NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly". Eiffel Studio is not required. However, for a better experience, Eiffel Studio is recommended.
 
+ALSO: (if you prefer) Navigate to:
+
+https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_library_mask.e
 
 DOCUMENTATION STRUCTURE
 =======================
