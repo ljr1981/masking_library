@@ -18,6 +18,7 @@ deferred class
 feature {NONE} -- Documentation
 
 	input_mask: detachable INPUT_MASK [ANY, detachable DATA_COLUMN_METADATA [ANY]]
+			-- The basis of all user-input handling masks.
 		note
 			basics: "[
 				{INPUT_MASK} provides features common to {TEXT_INPUT_MASK} and 
@@ -28,6 +29,7 @@ feature {NONE} -- Documentation
 		end
 
 	text_input_mask: detachable TEXT_INPUT_MASK [ANY, detachable DATA_COLUMN_METADATA [ANY]]
+			-- A specialization of {INPUT_MASK} for handling text-based user input.
 		note
 			basics: "[
 				{TEXT_INPUT_MASK} provides features common to all text masks.

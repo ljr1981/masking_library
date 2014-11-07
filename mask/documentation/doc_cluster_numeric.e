@@ -10,8 +10,8 @@ note
 			currencies, and percents.
 			]"
 	usage: "[
-			See {DOC_LIBRARY_MASK} "examples" note entry.
-			See {INPUT_MASK_TEST_SET}.masking_example_integer
+			See {NUMERIC_MASK_TEST_SET}.masking_example_integer
+			See {NUMERIC_MASK_TEST_SET}.masking_example_decimal
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"
@@ -22,8 +22,9 @@ deferred class
 feature {NONE} -- Documentation
 
 	integer_value_input_mask: detachable INTEGER_VALUE_INPUT_MASK
+			-- Masking for {INTEGER} data.
 		note
-			basics: "[
+			example: "[
 					See {INPUT_MASK_TEST_SET}.masking_example_integer
 					]"
 		attribute
@@ -31,28 +32,19 @@ feature {NONE} -- Documentation
 		end
 
 	decimal_value_input_mask: detachable DECIMAL_VALUE_INPUT_MASK
-		note
-			basics: "[
-					Use {DECIMAL_VALUE_INPUT_MASK} to mask fields for generic decimal input and display.
-					]"
+			-- Masking for {DECIMAL} data.
 		attribute
 			Result := Void
 		end
 
 	currency_value_input_mask: detachable CURRENCY_VALUE_INPUT_MASK
-		note
-			basics: "[
-					Use {CURRENCY_VALUE_INPUT_MASK} to mask fields for decimal input with a currency symbol preceding it.
-					]"
+			-- Masking for {NUMERIC} data operating as Currency.
 		attribute
 			Result := Void
 		end
 
 	percent_value_input_mask: detachable PERCENT_VALUE_INPUT_MASK
-		note
-			basics: "[
-					Use {PERCENT_VALUE_INPUT_MASK} to mask fields for decimal input with a percent symbol following it.
-					]"
+			-- Masking for {NUMERIC} data operating as Percentages.
 		attribute
 			Result := Void
 		end

@@ -37,8 +37,6 @@ feature -- Tests
 				-- Apply mask to field (e.g. mask is a factory that know how to set itself up on the widget).
 			l_mask.initialize_masking_widget_events (l_field)
 			assert_strings_equal ("empty_at_creation", "", l_field.text)
-			l_field.set_text ("12345")
---			assert_strings_equal ("123.45", "123.45", l_mask.value_to_string (l_field.text))
 		end
 
 	test_integer_mask

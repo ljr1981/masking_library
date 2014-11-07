@@ -1,4 +1,5 @@
 note
+	warning: "The {DATE_TIME_VALUE_INPUT_MASK} mask is incomplete. Use string masking for now."
 	description: "[
 			Documentation for date time masks.
 			]"
@@ -6,16 +7,18 @@ note
 			Date time masks allow for various formatting of dates and/or times.
 			]"
 	basics: "[
-			Programmers will use DATE_TIME_VALUE_INPUT_MASK.
+			Programmers will eventually use {DATE_TIME_VALUE_INPUT_MASK}. Until then, use the
+			{STRING_VALUE_INPUT_MASK} with Date-Time validation of user input.
 			]"
 	examples: "[
 			See {STRING_MASK_TEST_SET}.masking_example
+			See {STRING_MASK_TEST_SET}.masking_example_date_time
 			]"
 	usage: "[
 			Programmers should use {STRING_VALUE_INPUT_MASK} until {DATE_TIME_VALUE_INPUT_MASK} gets overhauled.
 			]"
 	todo: "[
-			20141031: DATE_TIME_VALUE_INPUT_MASK needs a new design an overhaul.
+			20141031: {DATE_TIME_VALUE_INPUT_MASK} needs a new design an overhaul.
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"

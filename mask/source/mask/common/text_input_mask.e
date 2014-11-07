@@ -3,12 +3,15 @@
 			An {INPUT_MASK} which controls text input.
 			]"
 	purpose: "[
-			The Text Input Mask is a specialization of {INPUT_MASK} which provides a framework for text based fields.
+			To provide a specialization of {INPUT_MASK} with features for handling
+			text-based data.
 			]"
 	how: "[			
 			- Masking -
-			Input masking is done primarily through `insert_string', which uses the `mask' as a template for what kind of
-			character can be allowed in what positions in the field.
+			
+			Input masking is done primarily through `insert_string', which uses the `mask' 
+			as a template for what kind of character can be allowed in what positions in 
+			the field.
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 1494 $"

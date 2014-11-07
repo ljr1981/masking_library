@@ -59,6 +59,39 @@ feature -- Tests
 			assert_strings_equal ("unmasked_value", "8888888888", l_mask.remove (l_field.text, Void).value)
 		end
 
+	masking_example_date_time
+		note
+			purpose: "[
+				To show you how to set up a Date-Time mask.
+				]"
+			warning: "[
+				The mask is NOT validation! In lieu of an actual Date-Time mask,
+				the {STRING_VALUE_INPUT_MASK} is presently being coupled with
+				Date-Time validation to ensure the user inputs a valid date.
+				]"
+			todo: "[
+				20141117: In the future, create a mask that filters based on Date-Time logic.
+					That is--"MM/DD/YYYY" will instruct the mask to take only MM (01-12) in
+					the position of the month and so on for DD (01-31 depending MM) and 
+					YYYY (0000-9999)
+				]"
+		local
+			l_mask: STRING_VALUE_INPUT_MASK
+			l_field: EV_TEXT_FIELD
+		do
+			create l_mask.make ("99/99/9999")
+			create l_field
+			--| Set up the mask to properly process keystrokes in the field
+			l_mask.initialize_masking_widget_events (l_field)
+			--| Set a masked value into the field
+			--| Note: In general, masked text should be placed in the field before accepting user keystrokes
+			--| as some masks cannot process keystrokes on an empty field
+			l_field.set_text (l_mask.apply ("10172014").masked_string)
+			assert_strings_equal ("field_has_masked_text", "10/17/2014", l_field.text)
+			--| Unmask the value
+			assert_strings_equal ("unmasked_value", "10172014", l_mask.remove (l_field.text, Void).value)
+		end
+
 	test_allow_all_mask
 			-- Test behavior of Allow All Repeating Mask
 		note
