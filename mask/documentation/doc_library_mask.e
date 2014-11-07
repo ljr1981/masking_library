@@ -8,11 +8,12 @@ note
 		Library documentation for the masking library.
 		]"
 	purpose: "[
-		To provide text masking facilities to classes derived from {EV_TEXT_COMPONENT} (those having text).
+		To provide text masking facilities to classes derived from {EV_TEXT_COMPONENT} (those having
+		 text).
 		]"
 	how: "[
-		By a factory, which takes some {EV_TEXT_COMPONENT} (e.g. {EV_TEXT_FIELD}) and hooking up a "mask" and
-		then watching user-interaction and responding to it.
+		By a factory, which takes some {EV_TEXT_COMPONENT} (e.g. {EV_TEXT_FIELD}) and hooking up a 
+		"mask" and then watching user-interaction and responding to it.
 		
 		A "mask-string" tells the factory what form of "mask" to apply. For example, a "(999) 999-9999"
 		might represent a common U.S. telephone number. A "999-99-9999" might represent a common U.S.
@@ -184,14 +185,16 @@ feature {NONE} -- Documentation
 	doc_cluster_misc: detachable DOC_CLUSTER_MISC
 		note
 			purpose: "[
-				20141031: The current purpose of this cluster is a catch-all for non-string and non-numeric masks.
+				20141031: The current purpose of this cluster is a catch-all for non-string and 
+					non-numeric masks.
 				]"
 			refactors: "[
-				20141031: At this point, this cluster contains only the DATE_TIME_VALUE_INPUT_MASK which needs overhauling.
-					Currently, programmers should {STRING_VALUE_INPUT_MASK} for date/time needs.
+				20141031: At this point, this cluster contains only the DATE_TIME_VALUE_INPUT_MASK 
+				which needs overhauling. Currently, programmers should {STRING_VALUE_INPUT_MASK} 
+				for date/time needs.
 				
-					Once overhauled, programmers will use:
-					{DATE_TIME_VALUE_INPUT_MASK} - to mask fields for date and/or time input and display
+				Once overhauled, programmers will use:
+				{DATE_TIME_VALUE_INPUT_MASK} - to mask fields for date and/or time input and display
 				]"
 		attribute
 			Result := Void
