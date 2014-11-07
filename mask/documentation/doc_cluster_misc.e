@@ -13,6 +13,8 @@ note
 	examples: "[
 			See {STRING_MASK_TEST_SET}.masking_example
 			See {STRING_MASK_TEST_SET}.masking_example_date_time
+		
+			NOTE: You can only access these in Clickable-view from the mask:test target.
 			]"
 	usage: "[
 			Programmers should use {STRING_VALUE_INPUT_MASK} until {DATE_TIME_VALUE_INPUT_MASK} 

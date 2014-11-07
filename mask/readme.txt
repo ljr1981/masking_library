@@ -1,6 +1,6 @@
 OVERVIEW
 ========
-Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through the Eiffel Studio IDE.
+Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through the Eiffel Studio IDE from the "mask:test" ECF target.
 
 NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly". Eiffel Studio is not required. However, for a better experience, Eiffel Studio is recommended.
 

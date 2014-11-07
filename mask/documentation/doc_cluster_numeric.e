@@ -12,6 +12,8 @@ note
 	usage: "[
 			See {NUMERIC_MASK_TEST_SET}.masking_example_integer
 			See {NUMERIC_MASK_TEST_SET}.masking_example_decimal
+			
+			NOTE: You can only access these in Clickable-view from the mask:test target.
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"

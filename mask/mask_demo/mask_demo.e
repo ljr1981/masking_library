@@ -1,5 +1,21 @@
 note
 	description : "mask_demo application root class"
+	purpose: "[
+		To provide a running GUI application where masking of various types has
+		been applied.
+		
+		You can run this code one of three ways:
+		1. Workbench: Click the "Run" button in the toolbar of the Eiffel Studio IDE.
+			Advantage: You can stop the code and step through it in the debugger if desired.
+			Disadvantage: Slower operation.
+		2. Finalize: Click Compile-->Finalize .. then .. Run-->Run Finalized System.
+			Advantage: Faster execution and truer user-experience. Simpler to run.
+			Disadvantage: Cannot stop and debug or watch execution.
+		3. EXE: Find the pre-finalized EXE in the root of the masking project and run.
+			Advantage: You do not have to wait for finalization to run NOW!
+			Disadvantage: The EXE may not perfectly reflect the existing code (e.g. stale EXE).
+							The EXE is for Windows and perhaps not for your OS.
+		]"
 	date        : "$Date: 2014-03-19 20:54:25 -0400 (Wed, 19 Mar 2014) $"
 	revision    : "$Revision: 8864 $"
 
