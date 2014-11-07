@@ -8,6 +8,13 @@ ALSO: (if you prefer) Navigate to:
 
 https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_library_mask.e
 
+For Cluster Documentation, navigate to:
+
+https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_common.e
+https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_misc.e
+https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_numeric.e
+https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_string.e
+
 DOCUMENTATION STRUCTURE
 =======================
 Starting with DOC_LIBRARY_MASK, you can learn about the library at a high level, then drill down to the clusters, and finally to the classes. You will also find examples in either the masking demo or in the *_TEST classes of the test target.
