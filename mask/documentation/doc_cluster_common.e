@@ -6,7 +6,8 @@ note
 		Common masking functionality exists at this level.
 		]"
 	basics: "[
-		Classes in this cluster provide common features for other classes. See "Documentation" features below.
+		Classes in this cluster provide common features for other classes. See 
+		"Documentation" features below.
 		]"
 	date: "$Date: 2014-11-03 14:23:18 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10180 $"
@@ -19,7 +20,8 @@ feature {NONE} -- Documentation
 	input_mask: detachable INPUT_MASK [ANY, detachable DATA_COLUMN_METADATA [ANY]]
 		note
 			basics: "[
-				{INPUT_MASK} provides features common to {TEXT_INPUT_MASK} and {NUMERIC_VALUE_INPUT_MASK}.
+				{INPUT_MASK} provides features common to {TEXT_INPUT_MASK} and 
+				{NUMERIC_VALUE_INPUT_MASK}.
 				]"
 		attribute
 			Result := Void

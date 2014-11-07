@@ -1,7 +1,7 @@
 note
 	description: "[
-		An Input Mask handles conversion to/from the underlying data type to the {STRING_32} 
-		object used in the widget and filters user input.
+		Handler of masking for data presentation and input, as well as type conversion between
+		underlaying Model and presentation GUI control (e.g. {ANY} --> {STRING}|{STRING_32}).
 		]"
 	purpose: "[
 		Some text fields (where user input is represented as a {STRING_32}) are represented 
@@ -24,6 +24,8 @@ note
 		- Masked Field Hookup -
 		The mask is hooked up to a field by use of `initialize_masking_widget_events'
 		
+		See {NUMERIC_MASK_TEST_SET}.masking_example_decimal for an example use.
+		
 		- Conversion -
 		The {STRING_32} representation of data from the model is placed in the widget using `apply'
 		
@@ -37,14 +39,22 @@ note
 		]"
 	caution: "[
 		The naming convention (e.g. *_index, *_position) was adopted late in the development and may not 
-		have been universally applied.  Deviations from it should be corrected.
+		have been universally applied.  Deviations from it should be noted to the author for correction.
 		]"
 	glossary: "Definitions of Terms"
 	term: "[
-		anchor: point(s) located between the characters in a text field (see caret_position).
+		anchor: The caret position acting as the starting point of a text selection process.
+			For example: The caret starts at "abc|def" and then "def" is selected from the
+			anchor point to the end (e.g. 'd' to 'f' using Shift+End). Shift+Home would
+			select from the anchor point backwards (e.g. 'c' to 'a').
 		]"
 	term: "[
-		caret position: point(s) located between the characters in a text field (see anchor).
+		caret: a mark (e.g. '|' most cases) placed below or within the line to indicate a 
+			proposed insertion in a printed or written text.
+		]"
+	term: "[
+		caret position: character location of the caret in the input character stream ({STRING}).
+			The caret mark appears to the left of the character being inserted or edited.
 		]"
 	term: "[
 		character position: position of actual character in string, as opposed to position of cursor
