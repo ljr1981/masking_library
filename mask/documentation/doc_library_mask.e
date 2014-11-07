@@ -60,10 +60,10 @@ note
 			Repeating Mask:
 			===============
 
-			Feature {STRING_VALUE_INPUT_MASK}.make_repeating indicates that a single format Specification
-			Character will be provided which will be repeated for all positions in the text
-			field string. User input will not be restricted to the width of the data source constraint,
-			but the input will be marked as invalid if it is too long.
+			Feature {STRING_VALUE_INPUT_MASK}.make_repeating indicates that a single format
+			Specification Character will be provided which will be repeated for all positions
+			in the text field string. User input will not be restricted to the width of the
+			data source constraint, but the input will be marked as invalid if it is too long.
 
 			The '\' character may be used to escape any format specification
 			characters with special meaning (including '\').
@@ -153,9 +153,11 @@ feature {NONE} -- Documentation
 				]"
 			basics: "[
 				Classes in this cluster provide common features for other classes.
-				{INPUT_MASK} provides features common to {TEXT_INPUT_MASK} and {NUMERIC_VALUE_INPUT_MASK}.
+				{INPUT_MASK} provides features common to {TEXT_INPUT_MASK} and 
+					{NUMERIC_VALUE_INPUT_MASK}.
 				{TEXT_INPUT_MASK} provides features common to all test masks.
-				{NUMERIC_VALUE_INPUT_MASK}, which is not in this cluster, provides features common to all numeric masks.
+				{NUMERIC_VALUE_INPUT_MASK}, which is not in this cluster, provides features 
+					common to all numeric masks.
 				]"
 		attribute
 			Result := Void
@@ -173,10 +175,12 @@ feature {NONE} -- Documentation
 				{NUMERIC_VALUE_INPUT_MASK} provides features common to all numeric masks.
 				
 				Programmers will use:
-				{INTEGER_VALUE_INPUT_MASK} - to mask fields for integer input and display
-				{DECIMAL_VALUE_INPUT_MASK} - to mask fields for generic decimal input and display
-				{CURRENCY_VALUE_INPUT_MASK} - to mask fields for decimal input with a currency symbol preceding it
-				{PERCENT_VALUE_INPUT_MASK} - to mask fields for decimal input with a percent symbol following it
+				{INTEGER_VALUE_INPUT_MASK}	- to mask fields for integer input and display
+				{DECIMAL_VALUE_INPUT_MASK} 	- to mask fields for generic decimal input and display
+				{CURRENCY_VALUE_INPUT_MASK} - to mask fields for decimal input with a currency 
+												symbol preceding it
+				{PERCENT_VALUE_INPUT_MASK} 	- to mask fields for decimal input with a percent 
+												symbol following it
 				]"
 		attribute
 			Result := Void
