@@ -1,15 +1,35 @@
 note
 	description: "[
-			Documentation for string text masks.
+			Documentation of String cluster in Mask cluster.
 			]"
 	purpose: "[
-			To provide masking facilities for various {STRING} inputs like Social Security Numbers or
-			Phone Numbers, and so on.
+			To provide masking facilities for various {STRING} inputs like Social Security
+			Numbers or Phone Numbers, and so on.
 			]"
 	basics: "[
 			Use {STRING_VALUE_INPUT_MASK}.make or {STRING_VALUE_INPUT_MASK}.make_repeating
 			to apply {STRING} masking to string input on {EV_TEXTABLE} controls.
 			]"
+	tutorial: "[
+		Text Patterns & Masking
+		=======================
+		User editable input text can be everthing from totally ad-hoc to highly controlled
+		by some rigid pattern or "mask". The String Cluster classes facilitate these
+		user-input and editing-control masking needs.
+		
+		Some text is completely free-form and arbitrary. User-input in such fields may not
+		be maskable. Masking does not apply to these use-cases.
+		
+		Some text is free-form, but controlled by a use-case rule like: "Must be all-caps"
+		or "Must be all-caps and alphabetic characters only".
+		
+		Other text is not free-form, but follows a defined pattern (e.g. a U.S. Phone Number
+		might follow a patter like: "(999) 999-9999").
+		
+		Still other logic in a mask will handle filtering (blocking) or replacement of
+		user-input. For example, the rule might be: "The mask accepts alphabetic characters
+		only; non-alpha characters are replaced with spaces".
+		]"
 	examples: "[
 			See {STRING_VALUE_INPUT_MASK} for examples of creation with different formats.
 			]"
@@ -19,7 +39,12 @@ note
 deferred class
 	DOC_CLUSTER_STRING
 
-note
+feature {NONE} -- Documentation
+
+	string_value_input_mask: detachable STRING_VALUE_INPUT_MASK
+			-- Mask that handles {STRING} user-input.
+
+;note
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking

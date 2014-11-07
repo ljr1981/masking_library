@@ -1,12 +1,19 @@
 note
-	warning: "DO NOT USE! (yet). See %"cautions%" below and %"refactors%" in {DOC_LIBRARY_MASK}.doc_cluster_misc notes."
+	warning: "[
+		DO NOT USE! (yet). See %"cautions%" below and %"refactors%" in 
+		{DOC_LIBRARY_MASK}.doc_cluster_misc notes.
+		]"
 	description: "[
-			Date Time Value Input Masks are sepcializations of {TEXT_INPUT_MASK} to only allow date/time input.
+			Date Time Value Input Masks are sepcializations of {TEXT_INPUT_MASK} 
+			to only allow date/time input.
 			]"
 	cautions: "[
-		20141031: This class is not fully ready for use. See {DOC_LIBRARY_MASK}.doc_cluster_misc notes.
+		20141031: This class is not fully ready for use. 
+			See {DOC_LIBRARY_MASK}.doc_cluster_misc notes.
 		]"
-	generic_definition: "V -> DATE_TIME Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint"
+	generic_definition: "[
+		V -> DATE_TIME Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint
+		]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: $"
 

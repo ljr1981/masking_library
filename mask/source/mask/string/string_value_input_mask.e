@@ -6,17 +6,18 @@
 			To mask user {STRING} input.
 			]"
 	how: "[
-			By applying a "mask-specification" as either a full or fixed mask or a repeating mask.
+			By applying a "mask-specification" as either a full or fixed mask or a 
+			repeating mask.
 			
-			A full or fixed mask specifies what characters the user can input at each input position
-			in the string.
+			A full or fixed mask specifies what characters the user can input at each 
+			input position in the string.
 			
-			A repeating mask specifies what characters the user can input at any and all positions in
-			the input string.
+			A repeating mask specifies what characters the user can input at any and 
+			all positions in the input string.
 			]"
 	examples: "[
-			See {STRING_MASK_TEST_SET}.masking_example (available for pick-and-drop from masking library 
-			`test' target Clickable-view)
+			See {STRING_MASK_TEST_SET}.masking_example (available for pick-and-drop 
+			from masking library `test' target Clickable-view)
 			
 			┌───────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────┐
 			│create string_value_input_mask.make_repeating ("!") 		│forces all alphabetic characters to uppercase.
@@ -28,11 +29,14 @@
 			│create string_value_input_mask.make ("__/__") 				│a MM/YY type format, the '_' allows digits or spaces, like ' 8/65' or '8 /65'
 			└───────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────┘
 
-			See also {TEXT_INPUT_MASK}.initialize_from_mask_string for more allowable specifications.
+			See also {TEXT_INPUT_MASK}.initialize_from_mask_string for more
+			allowable specifications.
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 1345 $"
-	generic_definition: "V -> READABLE_STRING_GENERAL Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint"
+	generic_definition: "[
+		V -> {READABLE_STRING_GENERAL} Value; CON -> Type of the {DATA_COLUMN_METADATA} to use as a constraint
+		]"
 
 class
 	STRING_VALUE_INPUT_MASK

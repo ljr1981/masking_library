@@ -15,7 +15,8 @@ note
 			See {STRING_MASK_TEST_SET}.masking_example_date_time
 			]"
 	usage: "[
-			Programmers should use {STRING_VALUE_INPUT_MASK} until {DATE_TIME_VALUE_INPUT_MASK} gets overhauled.
+			Programmers should use {STRING_VALUE_INPUT_MASK} until {DATE_TIME_VALUE_INPUT_MASK} 
+			gets overhauled.
 			]"
 	todo: "[
 			20141031: {DATE_TIME_VALUE_INPUT_MASK} needs a new design an overhaul.
