@@ -1,4 +1,5 @@
 note
+	EIS: "name=readme", "src=../readme.pdf", "protocol=PDF", "tag=external"
 	title: "Masking Library Documentation"
 	warning: "[
 		This library meets the needs of its original author, but may not meet the needs of everyone.
