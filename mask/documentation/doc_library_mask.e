@@ -159,7 +159,6 @@ feature {NONE} -- Documentation
 				{NUMERIC_VALUE_INPUT_MASK}, which is not in this cluster, provides features 
 					common to all numeric masks.
 				]"
-			EIS: "name=common_cluster_documentation", "src=https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_common.e", "protocol=URI", "tag=external"
 		attribute
 			Result := Void
 		end
