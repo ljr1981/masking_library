@@ -14,11 +14,12 @@ note
 		{PERSON}.age: INTEGER 	<-- Model object with an INTEGER for `age' of {PERSON}
 		{EV_TEXT_FIELD}.text	<-- Text representation of `age' in GUI
 		
-		To provide a level of "filtering" of user-input
+		To provide a level of "filtering" of user-input where applied "masking codes"
+		(e.g. character specifications) are used by the masking code to allow or disallow
+		certain characters to be typed into certain positions within the mask.
 		
-		For some fields it is advantageous to filter user input, for example there is no 
-		reason to allow the user to type an 'a' in a field which is to be used only for 
-		a social security number.
+		The filtering not only allows or disallows, but (in some cases) does a replacement.
+		For example: 'A' - Only alphabetic characters are allowed. Numbers converted to spaces.
 		]"
 	how: "[			
 		All {INPUT_MASK}s are stateless so that they may be hooked up to multiple widgets.
