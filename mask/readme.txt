@@ -21,6 +21,7 @@ DOCUMENTATION VIDEOS
 https://www.youtube.com/watch?v=OIvurIB8XN4 <-- Learning the Eiffel Masking Library (start here)
 https://www.youtube.com/watch?v=aDT-2MqQciQ <-- Eiffel Masking: Add Simple Repeating Mask (then)
 https://www.youtube.com/watch?v=hAU9dcUtU0Y <-- Add a Phone Number Mask (Complex Text Masking)
+https://www.youtube.com/watch?v=_BUWuwViYvY <-- Adding a Complex Currency Mask
 
 DOCUMENTATION STRUCTURE
 =======================
