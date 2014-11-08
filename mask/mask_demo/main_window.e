@@ -27,14 +27,23 @@ feature {NONE} -- Initialization
 		do
 			create main_box
 
+				-- Digit-only-masked phone number
 				-- Simplistic example: A mask and a string text field.
 				-- See: `{STRING_MASK_TEST_SET}.masking_example' for another version of this code.
-			create {STRING_VALUE_INPUT_MASK} l_mask.make ("(###) ###-####")			-- Create mask with a pattern.
-			create example_text_field												-- Create the empty control (an EV_TEXT_FIELD).
-			l_mask.initialize_masking_widget_events (example_text_field)			-- Give control to the mask to set up events.
-			example_text_field.set_text (l_mask.apply ("          ").masked_string)	-- Set some masked empty text into control.
+			create {STRING_VALUE_INPUT_MASK} l_mask.make ("(999) 999-9999")					-- Create mask with a pattern.
+			create masked_phone_digits_only													-- Create the empty control (an EV_TEXT_FIELD).
+			l_mask.initialize_masking_widget_events (masked_phone_digits_only)				-- Give control to the mask to set up events.
+			masked_phone_digits_only.set_text (l_mask.apply ("          ").masked_string)	-- Set some masked empty text into control.
 				-- NOTE: Try commenting out the line immediately above and see what happens.
 				--			(hint: it generates an error!)
+			masked_phone_digits_only.set_tooltip (phone_digits_only_tooltip_text)
+
+				-- Pound-masked phone number
+			create {STRING_VALUE_INPUT_MASK} l_mask.make ("(###) ###-####")					-- Create mask with a pattern.
+			create masked_phone_pound_sign													-- Create the empty control (an EV_TEXT_FIELD).
+			l_mask.initialize_masking_widget_events (masked_phone_pound_sign)				-- Give control to the mask to set up events.
+			masked_phone_pound_sign.set_text (l_mask.apply ("          ").masked_string)	-- Set some masked empty text into control.
+			masked_phone_pound_sign.set_tooltip (pound_sign_tooltip_text)
 
 				-- Data field
 			create date.make_now
@@ -97,7 +106,8 @@ feature {NONE} -- Initialization
 			extend (main_box)
 
 				-- Extends
-			main_box.extend (example_text_field)
+			main_box.extend (masked_phone_pound_sign)
+			main_box.extend (masked_phone_digits_only)
 			main_box.extend (masked_date.box)
 			main_box.extend (masked_integer.box)
 			main_box.extend (masked_decimal.box)
@@ -113,7 +123,8 @@ feature {NONE} -- Initialization
 			main_box.extend (masked_forced_lower_alpha_only.box)
 
 				-- Expansions
-			main_box.disable_item_expand (example_text_field)
+			main_box.disable_item_expand (masked_phone_pound_sign)
+			main_box.disable_item_expand (masked_phone_digits_only)
 			main_box.disable_item_expand (masked_date.box)
 			main_box.disable_item_expand (masked_integer.box)
 			main_box.disable_item_expand (masked_decimal.box)
@@ -185,7 +196,9 @@ feature {NONE} -- Implementation: Access
 
 feature {NONE} -- Implementation: GUI Elements
 
-	example_text_field: EV_TEXT_FIELD
+	masked_phone_pound_sign: EV_TEXT_FIELD
+
+	masked_phone_digits_only: EV_TEXT_FIELD
 
 	masked_date: MASKED_DATE_TIME_FIELD
 
@@ -214,6 +227,24 @@ feature {NONE} -- Implementation: GUI Elements
 	masked_forced_lower_alpha_only: MASKED_STRING_FIELD -- 'W' repeating mask
 
 	main_box: EV_VERTICAL_BOX
+
+feature {NONE} -- Implementation: Constants
+
+	phone_digits_only_tooltip_text: STRING = "[
+Masking set with (999) 999-9999
+
+Note how seeding it with an empty string forces it to a string of 0's.
+
+Compare with a mask of (###) ###-####, which (when seeded the same way)
+results in empty content and not a string of 0's.
+		]"
+
+	pound_sign_tooltip_text: STRING = "[
+Masking set with (###) ###-####
+
+Note how seeding control with empty string does not result in 0's, but
+with an %"empty phone number%".
+		]"
 
 ;note
 	copyright: "Copyright (c) 2010-2014"
