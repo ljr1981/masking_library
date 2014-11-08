@@ -39,6 +39,9 @@ Notes are provided for the library, all clusters, and all classes of interest to
 Some Class-features have additional notes as-needed or required to help you learn and reuse quickly.
 
 
+test
+
+
 NEXT!
 =====
 Now--You are ready to open Eiffel Studio and open the "mask", "mask_demo", or "test" target for this library.
