@@ -15,6 +15,13 @@ https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cl
 https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_numeric.e
 https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_string.e
 
+DOCUMENTATION VIDEOS
+====================
+
+https://www.youtube.com/watch?v=OIvurIB8XN4 <-- Learning the Eiffel Masking Library (start here)
+https://www.youtube.com/watch?v=aDT-2MqQciQ <-- Eiffel Masking: Add Simple Repeating Mask (then)
+https://www.youtube.com/watch?v=hAU9dcUtU0Y <-- Add a Phone Number Mask (Complex Text Masking)
+
 DOCUMENTATION STRUCTURE
 =======================
 Starting with DOC_LIBRARY_MASK, you can learn about the library at a high level, then drill down to the clusters, and finally to the classes. You will also find examples in either the masking demo or in the *_TEST classes of the test target.
