@@ -1,4 +1,4 @@
-	OVERVIEW
+OVERVIEW
 ========
 Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through the Eiffel Studio IDE from the "mask:test" ECF target.
 
