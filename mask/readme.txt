@@ -1,4 +1,4 @@
-OVERVIEW
+	OVERVIEW
 ========
 Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through the Eiffel Studio IDE from the "mask:test" ECF target.
 
@@ -18,10 +18,10 @@ https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cl
 DOCUMENTATION VIDEOS
 ====================
 
-https://www.youtube.com/watch?v=OIvurIB8XN4 <-- Learning the Eiffel Masking Library (start here)
-https://www.youtube.com/watch?v=aDT-2MqQciQ <-- Eiffel Masking: Add Simple Repeating Mask (then)
-https://www.youtube.com/watch?v=EEafD4_cFRQ <-- Add a Phone Number Mask (Complex Text Masking)
-https://www.youtube.com/watch?v=_BUWuwViYvY <-- Adding a Complex Currency Mask
+https://www.youtube.com/watch?v=OIvurIB8XN4 <-- Eiffel Masking: Learning the Library (start here)
+https://www.youtube.com/watch?v=aDT-2MqQciQ <-- Eiffel Masking: Add Simple Repeating Mask
+https://www.youtube.com/watch?v=EEafD4_cFRQ <-- Eiffel Masking: Phone Number Mask
+https://www.youtube.com/watch?v=_BUWuwViYvY <-- Eiffel Masking: Complex Currency Mask
 
 DOCUMENTATION STRUCTURE
 =======================
