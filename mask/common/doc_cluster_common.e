@@ -11,9 +11,8 @@ note
 		]"
 	classes: "[
 		{INPUT_MASK}
-			Universal handlers of masking behaviors for data input and presentation, as well
-			as type conversion between underlaying raw data and presentation GUI control
-			(e.g. {ANY} --> {STRING} | {STRING_32}).
+			Universal handlers of masking behaviors for data input and presentation, as well as type conversion
+			between underlaying raw data and presentation GUI control (e.g. {ANY} --> {STRING} | {STRING_32}).
 
 		{TEXT_INPUT_MASK}
 			{INPUT_MASK} objects that specialize in input for text data types.

@@ -3,10 +3,10 @@ note
 			Messages used by input masks.
 			]"
 	hierarchy: "[
-			  a                           {ABSTRACT_MASKING_MESSAGES}  (polymorphic supplier for {INPUT_MASK})
-			  A                                        |
-			  A                                        |
-			  A                                {MASKING_MESSAGES}
+			    {ABSTRACT_MASKING_MESSAGES} <======= (polymorphic supplier for {INPUT_MASK})
+			                 |
+			                 |
+			        {MASKING_MESSAGES}
 			]"
 	classes: "[
 			{ABSTRACT_MASKING_MESSAGES}

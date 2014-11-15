@@ -1,7 +1,7 @@
 note
 	description: "[
-		Universal handlers of masking behaviors for data input and presentation, as well as type conversion
-		between underlaying raw data and presentation GUI control (e.g. {ANY} --> {STRING} | {STRING_32}).
+			Universal handlers of masking behaviors for data input and presentation, as well as type conversion
+			between underlaying raw data and presentation GUI control (e.g. {ANY} --> {STRING} | {STRING_32}).
 		]"
 	hierarchy: "[
 		                       {INPUT_MASK}
