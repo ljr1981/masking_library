@@ -10,7 +10,7 @@
 			<exclude>/.svn$</exclude>
 			<exclude>/.git$</exclude>
 			<exclude>/tests$</exclude>
-			<exclude>/mask_demo$</exclude>
+			<exclude>/mask_demo_app$</exclude>
 		</file_rule>
 		<option warning="true" void_safety="transitional" syntax="provisional">
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
@@ -32,7 +32,7 @@
 		</library>
 		<cluster name="mask" location=".\" recursive="true"/>
 	</target>
-	<target name="mask_demo" extends="mask">
+	<target name="mask_demo_app" extends="mask">
 		<root class="MASK_DEMO" feature="make"/>
 		<file_rule>
 			<exclude>/EIFGENs$</exclude>
@@ -41,7 +41,7 @@
 			<exclude>/.git$</exclude>
 			<exclude>/tests$</exclude>
 		</file_rule>
-		<cluster name="mask_demo" location=".\mask_demo" recursive="true"/>
+		<cluster name="mask_demo_app" location=".\mask_demo_app" recursive="true"/>
 	</target>
 	<target name="test" extends="mask">
 		<root class="MASKING_TEST_ROOT_CLASS" feature="make"/>

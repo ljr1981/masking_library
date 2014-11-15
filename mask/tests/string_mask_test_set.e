@@ -21,23 +21,23 @@ feature -- Tests
 				=============
 				1. Create a mask, passing in an {EV_TEXTABLE}, such as {EV_TEXT_FIELD}.
 				2. On the {EV_TEXTABLE}, call {EV_TEXTABLE}.set_text, passing the masks version of its `masked_string'
-				
+
 				Note: In general, masked text should be placed in the field before accepting user keystrokes
 						as some masks cannot process keystrokes on an empty field.
-						
+
 				Unmasking Steps
 				===============
 				Q: Why do you need "unmasking"?
-				
+
 				A: Masking is a GUI-user-interactive use-case. One will generally not want to store the mask with the
 					data the user has typed. Therefore, the {INPUT_MASK}.remove is provided to strip the mask from
 					the {EV_TEXTABLE}.text contents, leaving just the input the user typed. This is generally what
 					you will use in your program or persist to storage.
-					
+
 				1. Call {INPUT_MASK}.remove, passing the {EV_TEXTABLE}.text and an optional "Constraint" (1)
-				
+
 				The Result of the call will be a named TUPLE, where the {TUPLE}.value contains the raw user-input.
-				
+
 				FOOTNOTES:
 				==========
 				(1) Generally, if you have no text-size constraints, then you can simply pass Void (e.g. "optional").
@@ -49,7 +49,7 @@ feature -- Tests
 			create l_mask.make ("(999) 999-9999")
 			create l_field
 			--| Set up the mask to properly process keystrokes in the field
-			l_mask.initialize_masking_widget_events (l_field)
+			l_mask.add_text_widget (l_field)
 			--| Set a masked value into the field
 			--| Note: In general, masked text should be placed in the field before accepting user keystrokes
 			--| as some masks cannot process keystrokes on an empty field
@@ -70,9 +70,9 @@ feature -- Tests
 				Date-Time validation to ensure the user inputs a valid date.
 				]"
 			todo: "[
-				20141117: In the future, create a mask that filters based on Date-Time logic.
+				2014-11-17: In the future, create a mask that filters based on Date-Time logic.
 					That is--"MM/DD/YYYY" will instruct the mask to take only MM (01-12) in
-					the position of the month and so on for DD (01-31 depending MM) and 
+					the position of the month and so on for DD (01-31 depending MM) and
 					YYYY (0000-9999)
 				]"
 		local
@@ -82,7 +82,7 @@ feature -- Tests
 			create l_mask.make ("99/99/9999")
 			create l_field
 			--| Set up the mask to properly process keystrokes in the field
-			l_mask.initialize_masking_widget_events (l_field)
+			l_mask.add_text_widget (l_field)
 			--| Set a masked value into the field
 			--| Note: In general, masked text should be placed in the field before accepting user keystrokes
 			--| as some masks cannot process keystrokes on an empty field
