@@ -13,6 +13,31 @@ note
 			NOTE: EiffelStudio's Clickable-view from MASK.ECF's "test" target provides click-and-drop access
 			to these examples in the above text.
 			]"
+	hierarchy: "[
+			                                    {NUMERIC_INPUT_MASK}
+			                                     /                 \
+			             {DECIMAL_VALUE_INPUT_MASK}               {INTEGER_VALUE_INPUT_MASK}
+			                         |
+			         {ANNOTATED_DECIMAL_VALUE_INPUT_MASK}
+			                 /                 \
+			{PERCENT_VALUE_INPUT_MASK}    {CURRENCY_VALUE_INPUT_MASK}
+		]"
+	classes: "[
+		{INTEGER_VALUE_INPUT_MASK}
+			{NUMERIC_INPUT_MASK} objects restricted to positive and negative integers.
+
+		{DECIMAL_VALUE_INPUT_MASK}
+			{NUMERIC_INPUT_MASK} objects that only allow numeric and `.' input.
+
+		{ANNOTATED_DECIMAL_VALUE_INPUT_MASK}
+			{DECIMAL_VALUE_INPUT_MASK} objects that permit input prefixed or suffixed with a character (e.g. 0.00% or $0.00)
+
+		{CURRENCY_VALUE_INPUT_MASK}
+			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display decimal values prefixed by "$".
+
+		{PERCENT_VALUE_INPUT_MASK}
+			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display decimal values suffixed by "%".
+		]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"
 

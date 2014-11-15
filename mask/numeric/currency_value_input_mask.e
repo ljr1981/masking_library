@@ -1,6 +1,6 @@
 note
 	description: "[
-			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display its values prefixed by "$".
+			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display decimal values prefixed by "$".
 	purpose: "[
 			Use this mask if you want a decimal field that has a '$' in front of the decimal.
 			]"

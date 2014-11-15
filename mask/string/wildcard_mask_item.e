@@ -1,6 +1,6 @@
 note
 	description: "[
-			{OPEN_MASK_ITEM} objects that allow user to input any printable character without change or restriction"
+			{OPEN_MASK_ITEM} objects that allow user to input any printable character without change or restriction
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 1345 $"

@@ -1,6 +1,6 @@
 note
 	description: "[
-			{MASK_ITEM_SPECIFICATION} objects that lock a character to a specific index in a masked field.
+			{MASK_ITEM_SPECIFICATION} objects that lock a character to a specific index in a masked field
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: $"

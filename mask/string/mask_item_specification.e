@@ -1,6 +1,6 @@
 note
 	description: "[
-			Specifications of allowed input at a particular index in a masked text field.
+			Specifications of allowed input at a particular character index in a masked text field
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 1379 $"

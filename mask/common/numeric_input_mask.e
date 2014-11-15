@@ -1,10 +1,10 @@
 note
 	description: "[
-			{INPUT_MASK} objects specialized to only allow numeric input.
-			]"
+		{INPUT_MASK} objects specialize in input for numeric data types.
+		]"
 	how: "[
-			See {INPUT_MASK}.
-			]"
+		See {INPUT_MASK}.
+		]"
 	date: "$Date: 2014-11-03 15:29:49 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: $"
 

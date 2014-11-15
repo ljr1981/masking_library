@@ -129,19 +129,19 @@ note
 		Run "mask_demo" target of MASK.ECF to interact with a demonstration program.
 		]"
 	clusters: "[
-		common:
+		common:  {DOC_CLUSTER_COMMON}
 			Ancestors common to all masks.
 
-		numeric:
+		numeric:  {DOC_CLUSTER_NUMERIC}
 			Masks for various types of numeric input, such as integers, decimals, currency values, and percents.
 
-		string:
+		string:  {DOC_CLUSTER_STRING}
 			Masks for various types of string input, such as USA social-security numbers, phone numbers, etc.
 
-		misc:
+		misc:  {DOC_CLUSTER_MISC}
 			Masks for types of input that are not covered by numeric or string masks.
 
-		messages:
+		messages:  {DOC_CLUSTER_MESSAGES}
 			User message constants used while user is editing.  Hierarchy accommodates non-English translations.
 
 		api:
@@ -158,33 +158,17 @@ deferred class
 
 feature {NONE} -- Cluster Documentation
 
-	doc_cluster_common: detachable DOC_CLUSTER_COMMON
-			-- Provides click-and-drop access to DOC_CLUSTER_COMMON class.
-			-- The "common" cluster contains ancestors common to all masks.
-		attribute
-			Result := Void
-		end
-
-	doc_cluster_numeric: detachable DOC_CLUSTER_NUMERIC
-			-- Provides click-and-drop access to DOC_CLUSTER_NUMERIC class.
-			-- The "numeric" cluster contains masks for various types of numeric input.
-		attribute
-			Result := Void
-		end
-
-	doc_cluster_string: detachable DOC_CLUSTER_STRING
-			-- Provides click-and-drop access to DOC_CLUSTER_STRING class.
-			-- The "string" cluster contains masks for various types of string input.
-		attribute
-			Result := Void
-		end
-
-	doc_cluster_misc: detachable DOC_CLUSTER_MISC
-			-- Provides click-and-drop access to DOC_CLUSTER_MISC class.
-			-- The "misc" cluster contains masks for types of string input that are neither
-			-- numeric nor string.
-		attribute
-			Result := Void
+	documentation
+			-- Merely included to get the DOC_... classes compiled into the universe via local variables.
+			-- Purpose:  to provide click-and-drop access these classes, which permits every class
+			-- surrounded by curly braces in the documentation to be click-and-droppable in Clicable View.
+		local
+			a: DOC_CLUSTER_COMMON
+			b: DOC_CLUSTER_STRING
+			c: DOC_CLUSTER_NUMERIC
+			d: DOC_CLUSTER_MISC
+			e: DOC_CLUSTER_MESSAGES
+		do
 		end
 
 note

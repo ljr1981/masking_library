@@ -1,6 +1,6 @@
 note
 	description: "[
-			{OPEN_MASK_ITEM} objects that consists of a list of allowed and forbidden mask items.
+			{OPEN_MASK_ITEM} objects that consists of a list of allowed and forbidden mask items
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: $"

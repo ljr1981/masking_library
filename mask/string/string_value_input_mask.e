@@ -1,6 +1,6 @@
 ﻿note
 	description: "[
-			Specialization of {TEXT_INPUT_MASK} which handles {READABLE_STRING_GENERAL} input.
+			Specialization of {TEXT_INPUT_MASK} which handles {READABLE_STRING_GENERAL} input
 			]"
 	purpose: "[
 			To mask user {STRING} input.
@@ -19,15 +19,15 @@
 			See {STRING_MASK_TEST_SET}.masking_example (available for pick-and-drop
 			from masking library `test' target Clickable-view)
 
-			┌───────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────┐
-			│create string_value_input_mask.make_repeating ("!") 		│forces all alphabetic characters to uppercase.
-			│create string_value_input_mask.make_repeating ("X") 		│allows unrestricted character entry.
-			│create string_value_input_mask.make_repeating ("K") 		│forces alphabetic characters to uppercase and also allows numeric characters.
-			│create string_value_input_mask.make_repeating ("9") 		│allows digits only
-			│create string_value_input_mask.make ("(###) ###-####") 	│allows digits and displays a typical phone format, like '(212) 555-4565'
-			│create string_value_input_mask.make ("###-##-####") 		│a typical SSN format, like '555-55-5555'
-			│create string_value_input_mask.make ("__/__") 				│a MM/YY type format, the '_' allows digits or spaces, like ' 8/65' or '8 /65'
-			└───────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────┘
+			+--------------------------------------------------------+-------------------------------------------------------------------------------+
+			| create string_value_input_mask.make_repeating ("!")    | forces all alphabetic characters to uppercase.                                |
+			| create string_value_input_mask.make_repeating ("X")    | allows unrestricted character entry.                                          |
+			| create string_value_input_mask.make_repeating ("K")    | forces alphabetic characters to uppercase and also allows numeric characters. |
+			| create string_value_input_mask.make_repeating ("9")    | allows digits only                                                            |
+			| create string_value_input_mask.make ("(###) ###-####") | allows digits and displays a typical phone format, like '(212) 555-4565'      |
+			| create string_value_input_mask.make ("###-##-####")    | a typical SSN format, like '555-55-5555'                                      |
+			| create string_value_input_mask.make ("__/__")          | a MM/YY type format, the '_' allows digits or spaces, like ' 8/65' or '8 /65' |
+			+--------------------------------------------------------+-------------------------------------------------------------------------------+
 
 			See also {TEXT_INPUT_MASK}.initialize_from_mask_string for more
 			allowable specifications.

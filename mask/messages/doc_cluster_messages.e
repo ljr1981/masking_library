@@ -1,21 +1,27 @@
 note
-	warning: "The {DATE_TIME_VALUE_INPUT_MASK} mask is incomplete.  Use string masking for now."
 	description: "[
-			Miscellaneous masks (non-text and non-numeric).
+			Messages used by input masks.
+			]"
+	hierarchy: "[
+			  a                           {ABSTRACT_MASKING_MESSAGES}  (polymorphic supplier for {INPUT_MASK})
+			  A                                        |
+			  A                                        |
+			  A                                {MASKING_MESSAGES}
 			]"
 	classes: "[
-		{DATE_TIME_VALUE_INPUT_MASK}
-			Date-Time Value Input Masks, sepcializations of {TEXT_INPUT_MASK} that only allow date/time input.
-				Note: 2014-10-31: Once overhaul is completed, use {DATE_TIME_VALUE_INPUT_MASK} for masking dates and/or times.
+			{ABSTRACT_MASKING_MESSAGES}
+				Masking messages.
+			{MASKING_MESSAGES}
+				Masking message constants
+
+			NOTE: EiffelStudio's Clickable-view from MASK.ECF's "test" target provides click-and-drop access
+			to these examples in the above text.
 		]"
-	todo: "[
-			2014-10-31: {DATE_TIME_VALUE_INPUT_MASK} needs a design overhaul.
-			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"
 
 deferred class
-	DOC_CLUSTER_MISC
+	DOC_CLUSTER_MESSAGES
 
 note
 	copyright: "Copyright (c) 2010-2014"

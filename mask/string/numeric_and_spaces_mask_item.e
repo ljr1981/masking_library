@@ -1,7 +1,6 @@
 note
 	description: "[
-			{ALPHA_NUMERIC_MASK_ITEM} objects that allow space characters in addition to
-			alphabetic and numeric input.
+			{ALPHA_NUMERIC_MASK_ITEM} objects that allow numeric and space characters at a specific index in a masked field
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"

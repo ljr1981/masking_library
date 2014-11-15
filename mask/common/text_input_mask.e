@@ -1,5 +1,5 @@
 ﻿note
-	description: "{INPUT_MASK} objects that specialize in text input (as opposed to numeric or other types)."
+	description: "{INPUT_MASK} objects specialize in input for text data types."
 	how: "[
 			- Masking -
 

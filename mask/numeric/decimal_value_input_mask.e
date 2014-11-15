@@ -1,6 +1,6 @@
 note
 	description: "[
-			{NUMERIC_INPUT_MASK} objects that only allow for numeric and `.' input.
+			{NUMERIC_INPUT_MASK} objects that only allow numeric and `.' input.
 	how: "[
 			See {INPUT_MASK}.
 

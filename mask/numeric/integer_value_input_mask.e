@@ -1,6 +1,6 @@
 note
 	description: "[
-			{NUMERIC_INPUT_MASK} objects with support for negative numbers.
+			{NUMERIC_INPUT_MASK} objects restricted to positive and negative integers.
 	how: "[
 			See {INPUT_MASK}.
 		]"

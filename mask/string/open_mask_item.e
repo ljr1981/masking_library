@@ -1,6 +1,6 @@
 note
 	description: "[
-			{MASK_ITEM_SPECIFICATION} objects that represent input-field characters that may be changed by user input.
+			{MASK_ITEM_SPECIFICATION} objects that represent input-field characters that may be changed by user input
 			]"
 	purpose: "[
 			The Open Mask Items are mask items that allow varied input to a position in the field.

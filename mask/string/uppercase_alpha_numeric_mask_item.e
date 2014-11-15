@@ -1,7 +1,7 @@
 note
 	description: "[
 			{FORCE_UPPER_CASE_MASK_ITEM} objects that also allow numeric input in addition to alphabetic,
-			specific index in a masked field while forcing alphabetic input to upper case.
+			at a specific index in a masked field while forcing alphabetic input to upper case
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"

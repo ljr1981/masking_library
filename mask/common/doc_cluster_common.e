@@ -9,6 +9,19 @@ note
 		                  /                    \
 		         (all text masks)        (all numeric masks)
 		]"
+	classes: "[
+		{INPUT_MASK}
+			Universal handlers of masking behaviors for data input and presentation, as well
+			as type conversion between underlaying raw data and presentation GUI control
+			(e.g. {ANY} --> {STRING} | {STRING_32}).
+
+		{TEXT_INPUT_MASK}
+			{INPUT_MASK} objects that specialize in input for text data types.
+
+		{NUMERIC_INPUT_MASK}
+			{INPUT_MASK} objects specialize in input for numeric data types.
+
+		]"
 	date: "$Date: 2014-11-03 14:23:18 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10180 $"
 

@@ -1,6 +1,6 @@
 note
 	description: "[
-			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display percentages.
+			{DECIMAL_VALUE_INPUT_MASK} objects specialized to display decimal values suffixed by "%".
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 10178 $"

@@ -1,6 +1,6 @@
 note
 	description: "[
-			{MASK_ITEM_SPECIFICATION} objects for a character that may not be changed by user input.
+			{MASK_ITEM_SPECIFICATION} objects for a character that may not be changed by user input
 			]"
 	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
 	revision: "$Revision: 1345 $"

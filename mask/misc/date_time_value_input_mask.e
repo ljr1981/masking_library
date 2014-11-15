@@ -1,6 +1,6 @@
 note
 	description: "[
-		Date-Time Value Input Masks, sepcializations of {TEXT_INPUT_MASK}, only allow date/time input.
+		Date-Time Value Input Masks, sepcializations of {TEXT_INPUT_MASK} that only allow date/time input.
 		]"
 	cautions: "[
 		2014-10-31: This class is not ready for use.
