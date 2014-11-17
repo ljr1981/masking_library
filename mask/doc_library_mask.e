@@ -56,7 +56,7 @@ note
 		Examples:
 		* U.S. Phone Number:	"(999) 999-9999"
 		* U.S. Soc Sec Number:	"999-99-9999"
-		* Credit Card#:	"9999-9999-9999-9999"
+		* Credit Card#:			"9999-9999-9999-9999"
 
 
 		Repeating Mask:
