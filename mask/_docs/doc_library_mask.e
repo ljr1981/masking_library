@@ -1,4 +1,5 @@
 note
+	EIS: "name:Read_me", "src=ReadMe.PDF", "protocol=PDF", "tag=external"
 	description: "Mask Library Documentation"
 	introduction: "[
 		Masking, in this context, is an application behavior when the user is displaying, entering or
