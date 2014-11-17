@@ -151,7 +151,7 @@ feature -- Tests
 			create l_widget
 			create l_mask.make ("!")
 			assert ("no_configurable_target_menu_handler", l_widget.configurable_target_menu_handler = Void)
-			l_mask.initialize_masking_widget_events (l_widget)
+			l_mask.add_text_widget (l_widget)
 			assert ("is_menu_mode", l_widget.mode_is_configurable_target_menu)
 			assert ("has_configurable_target_menu_handler", l_widget.configurable_target_menu_handler /= Void)
 		end

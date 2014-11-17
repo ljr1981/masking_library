@@ -1,8 +1,13 @@
-OVERVIEW
-========
-Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through the Eiffel Studio IDE from the "mask:test" ECF target.
+MASK LIBRARY
+============
+Masking, in this context, is an application behavior when the user is displaying, entering or editing text.  It permits the programmer to specify a mask, such as "(999) 999-9999", and attach the "mask" object with all the text fields that need it, and without any further actions on the part of the programmer, the text field behaves as you would expect in a phone number entry field:  namely, keystrokes are limited to numbers only, and the numbers fall into the positions indicated by the '9' characters.  The edited text is then available in either the masked or unmasked form.
 
-NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly". Eiffel Studio is not required. However, for a better experience, Eiffel Studio is recommended.
+
+WHERE TO BEGIN
+==============
+Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best interactively viewed through EiffelStudio from the "test" target in MASK.ECF.
+
+NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly".  EiffelStudio is not required.  However, for a better experience, it is recommended.
 
 ALSO: (if you prefer) Navigate to:
 
@@ -33,24 +38,26 @@ WHAT TO EXPECT
 When you open the DOC_LIBRARY_MASK class, notice the documentation structure.
 
 Library, Cluster, Class, and Class-feature level notes are expressed as Note-entry constructs (see ECMA-367 8.4.3 Page 34). 
+=======
 
-Each Note-name represents a category of information (e.g. title, description, purpose, how, and so on). 
-
-The categories are arranged for top-down reading (e.g. Familiar-reader --> Less-familiar-reader). 
-
-Familiar readers ought to find the information at the top of the notes sufficient.
-
-Less-familiar readers will want to read more of the note items to gain orientation and understanding.
-
-Notes are provided for the library, all clusters, and all classes of interest to you in order to use this library.
-
-Some Class-features have additional notes as-needed or required to help you learn and reuse quickly.
+SUGGESTED LEARNING PATH
+=======================
+Starting with DOC_LIBRARY_MASK.E, you can learn about the library at a high level, then drill down to the clusters, and classes as you need more detail.  Some features are provided in the DOC_... classes to make it easier to navigate to the classes being discussed.  You will also find code examples in either the masking demo or in the *_TEST classes of the test target.
 
 
-NEXT!
-=====
-Now--You are ready to open Eiffel Studio and open the "mask", "mask_demo", or "test" target for this library.
+FROM EiffelStudio
+=================
+If you open MASK.ECF from EiffelStudio, notice that there are 3 targets:
 
 "mask" 		--> What you will reference in your own project for reuse.
 "mask_demo"	--> To see a demonstration of the library at-work.
 "test"		--> To learn more about the library and see how it is tested (as well as other examples).
+
+
+NOTE
+====
+Running the "test" target does NOT run the tests (EiffelStudio AutoTest feature does that).  The root class for the "test" target is for the purpose of testing.  Targets that are purely for testing, have a root class and feature and will compile to an EXE.  However, this EXE is not intended for execution (e.g. "Run").  Instead, it is there for AutoTest to work with for testing.
+
+Additionally, we have used the root class and procedure as a convenience for bringing DOC_* classes into the system, which facilitates your access to and interaction with these classes for the purpose of documentation and learning (e.g. allowing you to navigate them with pick-and-drop and other Eiffel class and feature tools, like Clickable-view on the note clauses).
+
+Please allow the curly braces around class names in the documentation (like this:  {CLASS_NAME}) be a reminder that switching to Clickable view causes those names to become click-and-droppable links and are very convenient to use that way.
