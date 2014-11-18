@@ -21,6 +21,15 @@ https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cl
 https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_string.e
 
 
+DOCUMENTATION VIDEOS
+====================
+
+https://www.youtube.com/watch?v=OIvurIB8XN4 <-- Eiffel Masking: Learning the Library (start here)
+https://www.youtube.com/watch?v=aDT-2MqQciQ <-- Eiffel Masking: Add Simple Repeating Mask
+https://www.youtube.com/watch?v=EEafD4_cFRQ <-- Eiffel Masking: Phone Number Mask
+https://www.youtube.com/watch?v=_BUWuwViYvY <-- Eiffel Masking: Complex Currency Mask
+
+
 SUGGESTED LEARNING PATH
 =======================
 Starting with DOC_LIBRARY_MASK.E, you can learn about the library at a high level, then drill down to the clusters, and classes as you need more detail.  Some features are provided in the DOC_... classes to make it easier to navigate to the classes being discussed.  You will also find code examples in either the masking demo or in the *_TEST classes of the test target.

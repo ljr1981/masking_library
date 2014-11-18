@@ -6,11 +6,11 @@
 		<version major="1" minor="0" release="0" build="1"/>
 		<file_rule>
 			<exclude>/EIFGENs$</exclude>
+			<exclude>/mask_demo_app$</exclude>
 			<exclude>/CVS$</exclude>
 			<exclude>/.svn$</exclude>
 			<exclude>/.git$</exclude>
 			<exclude>/tests$</exclude>
-			<exclude>/mask_demo_app$</exclude>
 		</file_rule>
 		<option warning="true" void_safety="transitional" syntax="provisional">
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
@@ -30,7 +30,29 @@
 				<assertions precondition="true"/>
 			</option>
 		</library>
-		<cluster name="mask" location=".\" recursive="true"/>
+		<cluster name="mask" location=".\" recursive="true">
+			<description>
+MASKING
+=======
+
+Masking, in this context, is an application behavior when the user is displaying, entering or editing text.  
+It permits the programmer to specify a mask, such as "(999) 999-9999", and attach the "mask" object with all 
+the text fields that need it, and without any further actions on the part of the programmer, the text field 
+behaves as you would expect in a phone number entry field:  namely, keystrokes are limited to numbers only, 
+and the numbers fall into the positions indicated by the '9' characters.  The edited text is then available 
+in either the masked or unmasked form.
+
+
+WHERE TO BEGIN
+==============
+
+Documentation for this library can be found in the DOC_* classes (start with DOC_LIBRARY_MASK) and are best 
+interactively viewed through EiffelStudio from the "test" target in MASK.ECF.
+
+NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly".  EiffelStudio is not required.  
+However, for a better experience, it is recommended.
+			</description>
+		</cluster>
 	</target>
 	<target name="mask_demo_app" extends="mask">
 		<root class="MASK_DEMO" feature="make"/>
@@ -41,7 +63,7 @@
 			<exclude>/.git$</exclude>
 			<exclude>/tests$</exclude>
 		</file_rule>
-		<cluster name="mask_demo_app" location=".\mask_demo_app" recursive="true"/>
+		<cluster name="mask_demo_app" location=".\mask_demo_app\" recursive="true"/>
 	</target>
 	<target name="test" extends="mask">
 		<root class="MASKING_TEST_ROOT_CLASS" feature="make"/>
@@ -52,6 +74,15 @@
 		</file_rule>
 		<library name="test_extension" location="..\test_extension\test_extension.ecf"/>
 		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
-		<cluster name="tests" location=".\tests\" recursive="true"/>
+		<cluster name="tests" location=".\tests\" recursive="true">
+			<description>
+TESTING OF MASKING
+==================
+
+The `tests' cluster consists not only of tests, but also of working examples coded as tests you can execute.
+The tests for the Numeric cluster are extensive, comprehensive, and exhaustive. Other test sets are not as
+well done (future work to do action items).
+			</description>
+		</cluster>
 	</target>
 </system>
