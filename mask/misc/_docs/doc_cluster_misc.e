@@ -1,5 +1,7 @@
 note
-	warning: "The {DATE_TIME_VALUE_INPUT_MASK} mask is incomplete.  Use string masking for now."
+	warning: "[
+		The {DATE_TIME_VALUE_INPUT_MASK} mask is incomplete.  Use string masking for now.
+		]"
 	description: "[
 			Miscellaneous masks (non-text and non-numeric).
 			]"

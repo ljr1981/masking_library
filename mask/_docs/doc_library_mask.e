@@ -160,16 +160,26 @@ deferred class
 feature {NONE} -- Cluster Documentation
 
 	documentation
-			-- Merely included to get the DOC_... classes compiled into the universe via local variables.
-			-- Purpose:  to provide click-and-drop access these classes, which permits every class
-			-- surrounded by curly braces in the documentation to be click-and-droppable in Clicable View.
+			-- Documentation references
+		note
+			Purpose: "[
+				To provide click-and-drop access these classes, which permits every class surrounded by curly
+				braces in the documentation to be click-and-droppable in Clicable View.
+				]"
+			synopsis: "[
+				Included merely to get the DOC_* classes compiled into the universe via local variables.
+				]"
+		require
+			do_not_call: False
 		local
-			a: DOC_CLUSTER_COMMON
-			b: DOC_CLUSTER_STRING
-			c: DOC_CLUSTER_NUMERIC
+			a: DOC_CLUSTER_API
+			b: DOC_CLUSTER_COMMON
+			c: DOC_CLUSTER_MESSAGES
 			d: DOC_CLUSTER_MISC
-			e: DOC_CLUSTER_MESSAGES
+			e: DOC_CLUSTER_NUMERIC
+			f: DOC_CLUSTER_STRING
 		do
+			do_nothing
 		end
 
 note

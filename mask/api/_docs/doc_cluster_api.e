@@ -2,6 +2,9 @@ note
 	description: "[
 		Documentation for the Application Programmer Interface (API) cluster.
 		]"
+	warning: "[
+		Classes here have been marked as obsolete and will be removed at first convenience.
+		]"
 	date: "$Date$"
 	revision: "$Revision$"
 

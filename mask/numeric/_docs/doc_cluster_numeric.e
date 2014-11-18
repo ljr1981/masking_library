@@ -2,7 +2,7 @@ note
 	description: "[
 			Masks for various types of numeric input.
 			]"
-	basics: "[
+	synopsis: "[
 			Types of numeric input currently covered are:  integers, decimals, currency values, and percents.
 			]"
 	usage: "[
