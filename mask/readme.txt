@@ -11,7 +11,7 @@ NOTE: Except for Pick-and-Drop, all documentation files are "Notepad-friendly". 
 
 ALSO: (if you prefer) Navigate to:
 
-https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_library_mask.e
+https://github.com/ljr1981/masking_library/blob/master/mask/_docs/doc_library_mask.e
 
 For Cluster Documentation, navigate to:
 
