@@ -41,7 +41,7 @@ If you open MASK.ECF from EiffelStudio, notice that there are 3 targets:
 
 "mask" 		--> What you will reference in your own project for reuse.
 "mask_demo"	--> To see a demonstration of the library at-work.
-"test"		--> To learn more about the library and see how it is tested (as well as other examples).
+"test"		--> To learn more the library and see how it is tested (and examples).
 
 
 NOTE
