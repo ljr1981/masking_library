@@ -15,10 +15,10 @@ https://github.com/ljr1981/masking_library/blob/master/mask/_docs/doc_library_ma
 
 For Cluster Documentation, navigate to:
 
-https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_common.e
-https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_misc.e
-https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_numeric.e
-https://github.com/ljr1981/masking_library/blob/master/mask/documentation/doc_cluster_string.e
+https://github.com/ljr1981/masking_library/blob/master/mask/common/_docs/doc_cluster_common.e
+https://github.com/ljr1981/masking_library/blob/master/mask/misc/_docs/doc_cluster_misc.e
+https://github.com/ljr1981/masking_library/blob/master/mask/numeric/_docs/doc_cluster_numeric.e
+https://github.com/ljr1981/masking_library/blob/master/mask/string/_docs/doc_cluster_string.e
 
 
 DOCUMENTATION VIDEOS
