@@ -1,21 +1,20 @@
 note
+	warning: "DO NOT USE! (yet). See %"cautions%" below and %"refactors%" in {DOC_LIBRARY_MASK}.doc_cluster_misc notes."
 	description: "[
-		Date-Time Value Input Masks, sepcializations of {TEXT_INPUT_MASK} that only allow date/time input.
-		]"
+			Date Time Value Input Masks are sepcializations of {TEXT_INPUT_MASK} to only allow date/time input.
+			]"
 	cautions: "[
-		2014-10-31: This class is not ready for use.
-			See {DOC_LIBRARY_MASK}.doc_cluster_misc notes.
+		20141031: This class is not fully ready for use. See {DOC_LIBRARY_MASK}.doc_cluster_misc notes.
 		]"
-	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
-	revision: "$Revision: $"
+	generic_definition: "V -> DATE_TIME Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint"
+	date: "$Date: 2015-12-19 10:26:15 -0500 (Sat, 19 Dec 2015) $"
+	revision: "$Revision: 12868 $"
 
 class
 	DATE_TIME_VALUE_INPUT_MASK
 
-obsolete "[
-	Until this class is gets a design overhaul, use STRING_VALUE_INPUT_MASK instead.
-	See {STRING_MASK_TEST_SET}.masking_example_date_time  for an example.
-	]"
+obsolete
+	"use DATE_TIME_INPUT_MASK instead"
 
 inherit
 	TEXT_INPUT_MASK [DATE_TIME, DATE_TIME_COLUMN_METADATA]
@@ -223,6 +222,41 @@ feature {NONE} -- Implementation
 		end
 
 note
+	operations: "[
+		This note entry is here to offer you instruction on how to effectively and quickly
+		navigate through the documentation of this library and its clusters and classes.
+		
+		Virtues of Clickable-view & Notes
+		=================================
+		When viewing notes in the editor, embedded references which are Pick-and-Droppable in
+		the Clickable-view are not when in the general editing view. Moreover, only classes
+		which are "in-system" will have their features, clients, supplies, and so on viewable
+		in the various tools. Therefore, based on these items, you will want to pick-and-drop
+		"in-system" "classes-of-interest" (your interest) into the Class-tool and select the
+		Clickable-view tool as your primary reader -OR- you will want to change the editor to
+		the Clickable-view in order to explore (i.e. you are learning and not coding, so you
+		want to use the Clickable-view in the editor to explore with while learning).
+		
+		One will find an advantage by viewing the class and its notes in the editor under the
+		Clickable-view. When this is so, you may pick and drop a CLASS or Feature reference to
+		the Class or Feature tool in this IDE.
+		
+		Known Editor Bugs
+		=================
+		There are presently bugs in the Eiffel Studio editor that work against good documentation
+		exploration in the Clickable-view. Primarily, Tab characters and Unicode characters will
+		be removed from the view in Clickable-view, but are shown in the Editable-view. Clearly,
+		this behavior is against the purpose of the Clickable-view.
+		]"
+	glossary: "Definition of Terms"
+	term: "[
+		Clickable-view: Pick-and-drop a CLASS to the Class-tool and select the Clickable-view
+		]"
+	term: "[
+		In-system: A class is termed "in-system" when it is referenced by a Client, which is
+		in-turn referenced by another Client, and all the way back to the "root-class" of the
+		system (see Project Settings or ECF file for root-class definition).
+		]"
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking

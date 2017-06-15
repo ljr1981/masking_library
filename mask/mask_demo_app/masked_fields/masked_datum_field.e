@@ -1,7 +1,7 @@
 note
 	description: "[
 					Abstract notion of a Datum Field with applied masking.
-
+					
 					What:
 					----------------------------------------------------------------------
 					A "Datum" consisting of an EV_LABEL with an EV_TEXT_COMPONENT
@@ -9,13 +9,13 @@ note
 					a `mask' applied to it interactively with the user. Additionally,
 					having a `caption' text applied to a `label' in either a side-by-side
 					or over-under arrangement between the `label' and the `widget'.
-
+					
 					Why:
 					----------------------------------------------------------------------
 					Descendents of this class through a few deferred features and generics
 					need to supply masking to various forms of EV_TEXT_COMPONENT, combining
 					that `widget' together with a descriptive label.
-
+					
 					How:
 					----------------------------------------------------------------------
 					Supplying "C" for `content' type, "T" for `widget' type, "M" for `mask' type,
@@ -114,15 +114,10 @@ feature -- Settings
 				-- creation
 			create_mask
 				-- Initialization
-			mask.add_text_widget (widget)
+			mask.initialize_masking_widget_events (widget)
 			check attached_string: attached {READABLE_STRING_GENERAL} mask.apply (a_content) [1] as al_text then
 				widget.set_text (al_text)
 			end
-		end
-
-	on_enter
-		do
-
 		end
 
 feature -- Basic Operations

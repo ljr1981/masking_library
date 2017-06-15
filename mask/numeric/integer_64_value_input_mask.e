@@ -1,40 +1,123 @@
 note 
 	description: "[
-			An Upper Case Alpha Numeric Mask Item is a {MASK_ITEM_SPECIFICATION} which allows alphabetic and numeric
-			input to a specific index in a masked field while forcing alphabetic input to upper case.
+			An Integer 64 Value Input Mask is a {NUMERIC_INPUT_MASK} with support for negative numbers.
+	purpose: "[
+			Some fields need to permit and display an integer value.
 			]"
-	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
-	revision: "$Revision: 10178 $"
+	how: "[
+			See also {INPUT_MASK}.
+		]"
+	generic_definition: "V -> INTEGER_64 Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint"
+	date: "$Date: 2015-03-04 08:34:18 -0500 (Wed, 04 Mar 2015) $"
+	revision: "$Revision: 10883 $"
 
 class
-	UPPERCASE_ALPHA_NUMERIC_MASK_ITEM
+	INTEGER_64_VALUE_INPUT_MASK
 
 inherit
-	FORCE_UPPER_CASE_MASK_ITEM
+	NUMERIC_VALUE_INPUT_MASK [INTEGER_64, INTEGER_COLUMN_METADATA]
 		redefine
-			is_strict,
-			is_valid_character
+			is_valid_constraint,
+			is_valid_character_for_mask
 		end
 
 create
 	make
 
+feature {NONE} -- Initialization
+
+	make (a_capacity: NATURAL_8)
+			-- Create a default integer value mask.
+		do
+			capacity := a_capacity
+		end
+
 feature -- Access
 
-	is_strict: BOOLEAN
+	default_value: INTEGER_64
 			-- <Precursor>
 		do
-			Result := True
 		end
 
-	is_valid_character (a_character: CHARACTER_32): BOOLEAN
+feature -- Status Report
+
+	is_valid_character_for_mask (a_character: CHARACTER_32): BOOLEAN
 			-- <Precursor>
-			-- Counts new lines as valid characters.
 		do
-			Result := valid_characters.has (a_character.as_upper)
+			Result := Precursor (a_character) or else a_character ~ '-'
 		end
 
-	valid_characters: STRING_32 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
+	is_valid_constraint (a_constraint: detachable DATA_COLUMN_METADATA [ANY]): BOOLEAN
+			-- Is `a_constraint' consistent with specification of Current?
+		do
+			Result := Precursor (a_constraint) and then attached a_constraint and then a_constraint.capacity.as_natural_32 >= capacity
+		end
+
+feature {TEST_SET_BRIDGE} -- Implementation
+
+	remove_implementation (a_string: STRING_32; a_constraint: detachable INTEGER_COLUMN_METADATA): TUPLE [value: INTEGER_64; error_message: STRING_32]
+			-- <Precursor>
+			--| Currently does not report presence of illegal characters in `a_string'
+		local
+			l_string, l_error_message: STRING_32
+			l_value: INTEGER_64
+			l_text_is_too_long, l_has_invalid_characters: BOOLEAN
+		do
+			l_string := remove_formatting (a_string)
+			l_value := string_to_value (l_string)
+			l_text_is_too_long := False
+			if capacity > 0 then
+				l_text_is_too_long := l_string.count > capacity + a_string.has (negative_sign).to_integer
+			end
+
+			across l_string as ic_items loop
+				if not is_valid_character_for_mask (ic_items.item) then
+					l_has_invalid_characters := True
+				end
+			end
+
+			if l_text_is_too_long then
+				l_error_message := data_does_not_conform_to_mask_specification_message (l_string, capacity)
+			elseif l_has_invalid_characters then
+				l_error_message := translated_string (masking_messages.invalid_changes_message, [])
+			else
+				l_error_message := ""
+			end
+			Result := [l_value, l_error_message]
+		end
+
+	string_to_value (a_string: STRING_32): like default_value
+			-- <Precursor>
+		do
+			if a_string.is_integer_64 then
+				Result := a_string.to_integer_64
+			end
+		end
+
+	value_to_string (a_value: like default_value): READABLE_STRING_GENERAL
+			-- String representation of `a_value
+		do
+			Result := a_value.out
+		end
+
+	data_exceeds_column_constraint_message (a_result: INTEGER_64; a_constraint: detachable DATA_COLUMN_METADATA [ANY]): STRING_32
+			-- <Precursor>
+		require else
+			attached_constraint: attached a_constraint
+		do
+			check column_constraint_attached: attached a_constraint then
+				Result := translated_string (masking_messages.integer_entered_too_large_message, [a_result.out, (a_constraint.capacity ^ 18) - 1])
+			end
+		end
+
+	fits_in_mask (a_text: STRING_32): BOOLEAN
+			-- Does `a_text' fit in the current mask?
+		local
+			l_digit_count: like digit_count
+		do
+			l_digit_count := digit_count (a_text)
+			Result := l_digit_count.integer <= capacity and then l_digit_count.decimal <= 0
+		end
 
 note
 	operations: "[

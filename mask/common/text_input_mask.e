@@ -1,13 +1,18 @@
 ﻿note
-	description: "{INPUT_MASK} objects specialize in input for text data types."
+	description: "[
+			An {INPUT_MASK} which controls text input.
+			]"
+	purpose: "[
+			The Text Input Mask is a specialization of {INPUT_MASK} which provides a framework for text based fields.
+			]"
 	how: "[
 			- Masking -
-
-			Input masking is done primarily through `insert_string', which uses the `mask' as a template
-			for what kind of character can be allowed in what positions in the field.
+			Input masking is done primarily through `insert_string', which uses the `mask' as a template for what kind of
+			character can be allowed in what positions in the field.
 			]"
-	date: "$Date: 2014-11-03 14:18:26 -0500 (Mon, 03 Nov 2014) $"
+	date: "$Date: 2016-01-22 07:45:33 -0500 (Fri, 22 Jan 2016) $"
 	revision: "$Revision: 1494 $"
+	generic_definition: "V -> ANY Value; CON -> Type of the DATA_COLUMN_METADATA to use as a constraint"
 
 deferred class
 	TEXT_INPUT_MASK [V -> ANY, reference CON -> detachable DATA_COLUMN_METADATA [ANY]]
@@ -16,7 +21,7 @@ inherit
 	INPUT_MASK [V, CON]
 		redefine
 			handle_key_string,
-			handle_select_all,
+			handle_cut,
 			fix_pointer_position_implementation,
 			set_selection_in_widget,
 			update_text_and_caret_position
@@ -29,6 +34,26 @@ feature -- Access
 
 	open_item_count: NATURAL
 			-- The number of open items in Current.
+
+	open_items_in_region (a_start_index, a_end_index: INTEGER): INTEGER
+			-- Count of open items in region from `a_start_index' and `a_end_index'.
+		require
+			not_is_repeating_specification: not is_repeating_specification
+			valid_indexes: a_start_index <= a_end_index
+		local
+			l_index: INTEGER
+		do
+			from
+				l_index := a_start_index
+			until
+				l_index > a_end_index
+			loop
+				if mask.item (l_index).is_open then
+					Result := Result + 1
+				end
+				l_index := l_index + 1
+			end
+		end
 
 	right_trim (a_string: STRING_32): STRING_32
 			-- Version of `a_string' with right whitespace removed.
@@ -45,13 +70,10 @@ feature -- Status Report
 	accepts_new_line_and_tab: BOOLEAN
 			-- Can user enter a new_line or tab character into this mask?
 
-	allow_spaces: BOOLEAN
-			-- Allows space as a valid character or not.
-
 	is_masked_string_valid_for_current (a_masked_string: READABLE_STRING_GENERAL): BOOLEAN
 			-- Is `a_masked_string' a valid masked string for `Current'?
 		do
-			Result := is_repeating_specification or else a_masked_string.count <= mask.count or else allow_spaces
+			Result := is_repeating_specification or else a_masked_string.count <= mask.count
 		end
 
 	is_valid_mask (a_mask: STRING): BOOLEAN
@@ -62,6 +84,12 @@ feature -- Status Report
 
 	is_repeating_specification: BOOLEAN
 			-- Is `Current' implemented as a single repeating character specification?
+
+	is_delete_mode: BOOLEAN
+			-- Is the current mask currently operating in delete mode?
+			--| When true, pressing [backspace] or [delete] will remove an open charcter (or all selected characters)
+			--| From the widget text.
+			--| When false, the character or characters are replaced with spaces
 
 feature -- Settings
 
@@ -92,7 +120,11 @@ feature -- Event handling
 					if l_has_selection then
 						replace_selection (a_widget, l_text_to_insert.corrected)
 					else
-						insert_string (a_widget, l_text_to_insert.corrected)
+							--| Windows always adds a new line directly to the control, in the case of a text area.  In other cases it's irrelevant because
+							--| you can't add a new line.  So we will not do anything if `a_key_string' is simply a new line.
+						if not l_text_to_insert.corrected.same_string_general ("%N") then
+							insert_string (a_widget, l_text_to_insert.corrected)
+						end
 					end
 				end
 			end
@@ -102,49 +134,110 @@ feature -- Event handling
 	handle_key_back_space (a_widget: EV_TEXT_COMPONENT)
 			-- Remove text to the left of the cursor, as appropriate.
 		local
-			l_caret_position: INTEGER
-			l_initial_text: STRING_32
+			l_caret_position, l_index, l_start_removal_index, l_end_removal_index: INTEGER
+			l_initial_text, l_text: STRING_32
+			l_selection_entirely_closed: BOOLEAN
 		do
 			if a_widget.is_editable then
 				if is_repeating_specification and then not a_widget.has_selection and then is_control_pressed and then a_widget.caret_position > 1 then
 					a_widget.set_selection (1, a_widget.caret_position)
 				end
-				if a_widget.has_selection then
-						-- Remove selected text, place caret position at leftmost selection position.
-					l_initial_text := a_widget.text.twin
-					l_caret_position := a_widget.start_selection
-					--| For a back space, the caret ends up at the start of the selection
-					replace_selection (a_widget, "")
-					if not l_initial_text.same_string (a_widget.text) then
-						update_text_and_caret_position (a_widget, a_widget.text, l_caret_position)
-					end
-				else
-					l_caret_position := a_widget.caret_position
-					if
-						(not is_repeating_specification) and then
-						mask.valid_index (l_caret_position - 1) and then
-						not mask [l_caret_position - 1].is_open and then
-						mask [l_caret_position - 1].left_open_index > 0
-					then
-						a_widget.set_caret_position (mask [l_caret_position - 1].left_open_index + 1)
-					end
-					if is_control_pressed then
-						if not is_repeating_specification then
-							if a_widget.caret_position > 1 and then not mask [a_widget.caret_position - 1].is_open and then mask [a_widget.caret_position - 1].left_open_index > 0 then
-								update_text_and_caret_position (a_widget, a_widget.text, (open_items [1].index).max (mask [a_widget.caret_position - 1].left_open_index) + 1)
-							elseif mask [a_widget.caret_position].left_open_index = 0 then
-								update_text_and_caret_position (a_widget, a_widget.text, open_items [1].index)
-							end
-							from
-							until
-								(is_repeating_specification and then a_widget.caret_position = 1) or else
-								((not is_repeating_specification) and then (mask [a_widget.caret_position].left_open_index = 0) or else ((a_widget.caret_position > 1 and then not mask [a_widget.caret_position -1].is_open)))
-							loop
-								remove_character_at_caret_position (a_widget, True)
-							end
+				if (not is_repeating_specification) and then is_delete_mode then
+					if a_widget.has_selection then
+						l_start_removal_index := a_widget.start_selection
+						l_end_removal_index := a_widget.end_selection - 1
+						from
+							l_index := l_start_removal_index
+							l_selection_entirely_closed := True
+						until
+							not l_selection_entirely_closed or else l_index > l_end_removal_index
+						loop
+							l_selection_entirely_closed := not mask.item (l_index).is_open
+							l_index := l_index + 1
 						end
 					else
-						remove_character_at_caret_position (a_widget, True)
+						from
+							l_start_removal_index := a_widget.caret_position - 1
+						until
+							l_start_removal_index <= 0 or else mask.item (l_start_removal_index).is_open
+						loop
+							l_start_removal_index := l_start_removal_index - 1
+						end
+						l_end_removal_index := l_start_removal_index
+					end
+					if not l_selection_entirely_closed then
+						create l_text.make (a_widget.text.count)
+						check
+							widget_text_length: a_widget.text.count <= mask.count
+						end
+						from
+							l_index := 1
+						until
+							l_index > a_widget.text.count
+						loop
+							if ((l_index < l_start_removal_index) or (l_index > l_end_removal_index)) and then mask.item (l_index).is_open then
+								l_text.extend (a_widget.text.item (l_index))
+							end
+							l_index := l_index + 1
+						end
+						l_text.right_adjust
+						a_widget.set_text (apply_implementation (l_text).masked_string)
+						l_caret_position := (1).max (l_start_removal_index)
+						from
+						until
+							not mask.valid_index (l_caret_position) or else mask.item (l_caret_position).is_open
+						loop
+							l_caret_position := l_caret_position + 1
+						end
+						if l_caret_position > mask.count then
+							from
+								l_caret_position := l_caret_position - 1
+							until
+								mask.item (l_caret_position).is_open or else l_caret_position = 1
+							loop
+								l_caret_position := l_caret_position - 1
+							end
+						end
+						a_widget.set_caret_position (l_caret_position)
+					end
+				else
+					if a_widget.has_selection then
+							-- Remove selected text, place caret position at leftmost selection position.
+						l_initial_text := a_widget.text.twin
+						l_caret_position := a_widget.start_selection
+						--| For a back space, the caret ends up at the start of the selection
+						replace_selection (a_widget, "")
+						if not l_initial_text.same_string (a_widget.text) then
+							update_text_and_caret_position (a_widget, a_widget.text, l_caret_position)
+						end
+					else
+						l_caret_position := a_widget.caret_position
+						if
+							(not is_repeating_specification) and then
+							mask.valid_index (l_caret_position - 1) and then
+							not mask [l_caret_position - 1].is_open and then
+							mask [l_caret_position - 1].left_open_index > 0
+						then
+							a_widget.set_caret_position (mask [l_caret_position - 1].left_open_index + 1)
+						end
+						if is_control_pressed then
+							if not is_repeating_specification then
+								if a_widget.caret_position > 1 and then not mask [a_widget.caret_position - 1].is_open and then mask [a_widget.caret_position - 1].left_open_index > 0 then
+									update_text_and_caret_position (a_widget, a_widget.text, (open_items [1].index).max (mask [a_widget.caret_position - 1].left_open_index) + 1)
+								elseif mask [a_widget.caret_position].left_open_index = 0 then
+									update_text_and_caret_position (a_widget, a_widget.text, open_items [1].index)
+								end
+								from
+								until
+									(is_repeating_specification and then a_widget.caret_position = 1) or else
+									((not is_repeating_specification) and then (mask [a_widget.caret_position].left_open_index = 0) or else ((a_widget.caret_position > 1 and then not mask [a_widget.caret_position -1].is_open)))
+								loop
+									remove_character_at_caret_position (a_widget, True)
+								end
+							end
+						else
+							remove_character_at_caret_position (a_widget, True)
+						end
 					end
 				end
 			end
@@ -153,44 +246,143 @@ feature -- Event handling
 	handle_key_delete (a_widget: EV_TEXT_COMPONENT)
 			-- Processing to occur when delete key is pressed
 		local
+			l_index, l_start_removal_index, l_end_removal_index: INTEGER
+			l_had_selection, l_selection_entirely_closed: BOOLEAN
 			l_has_deleted, l_has_deleted_last_character: BOOLEAN
+			l_caret_position, l_selected_count, l_caret_adjustment, l_open_after: INTEGER
+			l_text, l_widget_text: STRING_32
 		do
 			if a_widget.is_editable then
-				if is_repeating_specification and then is_control_pressed and then not a_widget.has_selection and then a_widget.caret_position < (a_widget.text_length + 1) then
-					a_widget.set_selection (a_widget.caret_position, a_widget.text_length + 1)
-				end
-				if a_widget.has_selection then
-						-- Remove selected text, place caret position at left most selection position.
-					replace_selection (a_widget, "")
-				elseif is_control_pressed then
-					if a_widget.caret_position <= mask.count and then (not mask [a_widget.caret_position].is_open) and then (mask [a_widget.caret_position].right_open_index > 0) then
-						a_widget.set_caret_position (mask [a_widget.caret_position].right_open_index)
-					end
-
-					from
-					until
-						(is_repeating_specification and then a_widget.caret_position > a_widget.text_length) or else
-						(not is_repeating_specification and then l_has_deleted and then mask.valid_index (a_widget.caret_position - 1) and then (not mask [a_widget.caret_position - 1].is_open)) or else
-						(not is_repeating_specification and then not mask.valid_index (a_widget.caret_position)) or else
-						(not is_repeating_specification and then not mask [a_widget.caret_position].is_open) or else
-						l_has_deleted_last_character
-					loop
-						if not is_repeating_specification and then a_widget.caret_position = open_items [open_items.count].index then
-							l_has_deleted_last_character := True
+				if (not is_repeating_specification) and then is_delete_mode then
+					if a_widget.has_selection then
+						l_had_selection := True
+						l_start_removal_index := a_widget.start_selection
+						l_end_removal_index := a_widget.end_selection - 1
+						from
+							l_index := l_start_removal_index
+							l_selection_entirely_closed := True
+						until
+							not l_selection_entirely_closed or else l_index > l_end_removal_index
+						loop
+							l_selection_entirely_closed := not mask.item (l_index).is_open
+							l_index := l_index + 1
 						end
-						remove_character_at_caret_position (a_widget, False)
-						l_has_deleted := True
+					else
+						from
+							l_start_removal_index := a_widget.caret_position
+						until
+							l_start_removal_index <= 0 or else mask.item (l_start_removal_index).is_open
+						loop
+							l_start_removal_index := l_start_removal_index + 1
+						end
+						l_end_removal_index := l_start_removal_index
+					end
+					if not l_selection_entirely_closed then
+						l_widget_text := a_widget.text.twin
+						l_widget_text.right_adjust
+						create l_text.make (a_widget.text.count)
+						check
+							widget_text_length: a_widget.text.count <= mask.count
+						end
+						from
+							l_index := 1
+						until
+							l_index > l_widget_text.count
+						loop
+							l_widget_text := a_widget.text.twin
+							l_widget_text.right_adjust
+							if ((l_index < l_start_removal_index) or (l_index > l_end_removal_index)) and then mask.item (l_index).is_open then
+								l_text.extend (l_widget_text.item (l_index))
+								if l_index > l_end_removal_index then
+									l_open_after := l_open_after + 1
+								end
+							end
+							l_index := l_index + 1
+						end
+						a_widget.set_text (apply_implementation (l_text).masked_string)
+						if l_had_selection then
+							from
+								l_index := l_start_removal_index
+							until
+								l_index > l_end_removal_index
+							loop
+								if l_open_after > 0 then
+									l_caret_adjustment := l_caret_adjustment + 1
+									if mask.item (l_index).is_open then
+										l_open_after := l_open_after - 1
+									end
+								end
+								l_index := l_index + 1
+							end
+							l_caret_position := (1).max (l_start_removal_index + l_caret_adjustment)
+						else
+							l_caret_position := l_start_removal_index
+						end
+						from
+						until
+							not mask.valid_index (l_caret_position) or else mask.item (l_caret_position).is_open
+						loop
+							l_caret_position := l_caret_position + 1
+						end
+						if l_caret_position > mask.count then
+							from
+								l_caret_position := l_caret_position - 1
+							until
+								mask.item (l_caret_position).is_open or else l_caret_position = 1
+							loop
+								l_caret_position := l_caret_position - 1
+							end
+						end
+						a_widget.set_caret_position (l_caret_position)
 					end
 				else
-					remove_character_at_caret_position (a_widget, False)
+					if is_repeating_specification and then is_control_pressed and then not a_widget.has_selection and then a_widget.caret_position < (a_widget.text_length + 1) then
+						a_widget.set_selection (a_widget.caret_position, a_widget.text_length + 1)
+					end
+					if a_widget.has_selection then
+							-- Remove selected text, place caret position at left most selection position.
+						replace_selection (a_widget, "")
+					elseif is_control_pressed then
+						if a_widget.caret_position <= mask.count and then (not mask [a_widget.caret_position].is_open) and then (mask [a_widget.caret_position].right_open_index > 0) then
+							a_widget.set_caret_position (mask [a_widget.caret_position].right_open_index)
+						end
+
+						from
+						until
+							(is_repeating_specification and then a_widget.caret_position > a_widget.text_length) or else
+							(not is_repeating_specification and then l_has_deleted and then mask.valid_index (a_widget.caret_position - 1) and then (not mask [a_widget.caret_position - 1].is_open)) or else
+							(not is_repeating_specification and then not mask.valid_index (a_widget.caret_position)) or else
+							(not is_repeating_specification and then not mask [a_widget.caret_position].is_open) or else
+							l_has_deleted_last_character
+						loop
+							if not is_repeating_specification and then a_widget.caret_position = open_items [open_items.count].index then
+								l_has_deleted_last_character := True
+							end
+							remove_character_at_caret_position (a_widget, False)
+							l_has_deleted := True
+						end
+					else
+						remove_character_at_caret_position (a_widget, False)
+					end
 				end
+			end
+		end
+
+	handle_cut (a_widget: EV_TEXT_COMPONENT)
+			-- Perform a cut operation
+		do
+			if is_delete_mode and then a_widget.is_editable and then a_widget.has_selection then
+				ev_application.clipboard.set_text (a_widget.selected_text)
+				handle_key_delete (a_widget)
+			else
+				Precursor (a_widget)
 			end
 		end
 
 	handle_key_left (a_widget: EV_TEXT_COMPONENT)
 		local
-			l_anchor_position, l_caret_position, l_new_anchor_position, l_new_caret_position: INTEGER
-			l_has_selection: BOOLEAN
+			l_anchor_position, l_caret_position, l_new_anchor_position, l_new_caret_position, l_index: INTEGER
+			l_has_selection, l_found_blank, l_found_character: BOOLEAN
 		do
 				-- Retrieve caret positions of selection if any and store selection state.
 			l_anchor_position := anchor_position_from_widget (a_widget)
@@ -226,7 +418,24 @@ feature -- Event handling
 								else
 									l_new_caret_position := open_items [1].index
 								end
+								from
+									l_index := l_caret_position
+								until
+									l_index <= 0 or else l_found_blank or else l_index = l_new_caret_position
+								loop
+									l_index := l_index - 1
+									if l_found_character and then mask[l_index].is_open and then a_widget.text.item (l_index) = open_data_character then
+										l_found_blank := True
+									elseif mask[l_index].is_open and then a_widget.text.item (l_index) /= open_data_character then
+										l_found_character := True
+									end
+
+								end
+								if l_found_blank and then l_found_character then
+									l_new_caret_position := l_index + 1
+								end
 							end
+
 						end
 					else
 						if l_has_selection and not is_shift_pressed then
@@ -272,8 +481,8 @@ feature -- Event handling
 
 	handle_key_right (a_widget: EV_TEXT_COMPONENT)
 		local
-			l_anchor_position, l_caret_position, l_new_anchor_position, l_new_caret_position, l_text_length: INTEGER
-			l_control_pressed, l_option_pressed, l_shift_pressed, l_has_selection, l_move_end_index: BOOLEAN
+			l_anchor_position, l_caret_position, l_new_anchor_position, l_new_caret_position, l_text_length, l_index, l_target_caret_position, l_adjacent_difference: INTEGER
+			l_control_pressed, l_option_pressed, l_shift_pressed, l_has_selection, l_found_character: BOOLEAN
 			l_app: EV_APPLICATION
 		do
 			l_app := ev_application
@@ -294,35 +503,83 @@ feature -- Event handling
 						-- If caret is at the last position then no manipulation of caret is necessary.
 					if l_control_pressed then
 							-- Move end selection index to the next caret position.
-						if is_repeating_specification or else (l_caret_position > mask.count) then
+						if is_repeating_specification then
 								-- Move caret to end of control should it be passed an existing mask item.
 							l_new_caret_position := l_text_length + 1
 						else
-							if l_shift_pressed and then mask [l_caret_position].is_open and then mask.valid_index (mask [l_caret_position].right_closed_index) then
-								l_new_caret_position := mask [l_caret_position].right_closed_index
-							elseif l_shift_pressed and then (not mask [l_caret_position].is_open) and then mask.valid_index (mask [l_caret_position].right_open_index) then
-								l_new_caret_position := mask [l_caret_position].right_open_index
-								if mask [l_new_caret_position].right_closed_index > 0 then
-									l_new_caret_position := mask [l_new_caret_position].right_closed_index
-								else
-									l_new_caret_position := l_text_length + 1
+							if not mask.valid_index (l_caret_position) then
+								l_target_caret_position := open_items.item (open_items.count).index
+								-- )
+							elseif mask[l_caret_position].is_open or else (l_shift_pressed and then (l_caret_position > l_anchor_position)) then
+								from
+									l_target_caret_position := mask [l_caret_position].right_closed_index
+									l_adjacent_difference := 0
+								until
+									not mask.valid_index (l_target_caret_position) or else ((mask[l_target_caret_position].left_closed_index - l_adjacent_difference) /= l_caret_position)
+								loop
+									l_target_caret_position := mask [l_target_caret_position].right_closed_index
+									l_adjacent_difference := l_adjacent_difference + 1
 								end
+
 							elseif l_shift_pressed then
-								l_new_caret_position := open_items [open_items.count].index + 1
-							elseif mask [l_caret_position].is_open and then mask.valid_index (mask [l_caret_position].right_closed_index) then
-								l_new_caret_position := mask [mask [l_caret_position].right_closed_index].right_open_index
-							elseif (not mask [l_caret_position].is_open) and then mask.valid_index (mask [l_caret_position].right_open_index) then
-								l_new_caret_position := mask [l_caret_position].right_open_index
+								l_target_caret_position := mask[l_caret_position].right_open_index
 							else
-								l_new_caret_position := open_items [open_items.count].index
+								l_target_caret_position := l_caret_position
 							end
-							if (not is_repeating_specification) and then l_shift_pressed and then mask.valid_index (l_new_anchor_position) and then (not mask [l_new_anchor_position].is_open) and then mask [l_new_anchor_position].right_open_index > 0 then
-								l_move_end_index := l_new_anchor_position = l_new_caret_position
-								l_new_anchor_position := mask [l_new_anchor_position].right_open_index
-								if l_move_end_index then
-									l_new_caret_position := l_new_anchor_position
+							if
+								mask.valid_index (l_target_caret_position) and then
+								(((not l_shift_pressed) and then l_target_caret_position > 0 and then mask.valid_index (l_target_caret_position)) or else
+								(l_shift_pressed and then l_has_selection and then (l_target_caret_position < l_anchor_position) and then mask.valid_index (l_target_caret_position - 1) and then mask[l_target_caret_position - 1].is_open))
+
+							then
+								l_target_caret_position := mask [l_target_caret_position].right_open_index
+							elseif l_shift_pressed and then l_target_caret_position = 0 then
+								l_target_caret_position := a_widget.text_length + 1
+							end
+							if l_target_caret_position = 0 then
+								l_target_caret_position := mask.count
+							end
+							from
+								l_index := l_caret_position
+								-- and then (l_caret_position > l_anchor_position)
+								if l_has_selection and then mask.valid_index (l_index) and then not mask[l_index].is_open then
+									l_index := mask[l_index].right_open_index
 								end
+							until
+								(l_index >= l_target_caret_position) or else
+								(l_index = 0) or else
+								(l_found_character and then (mask [l_index].is_open and then a_widget.text.item (l_index) = open_data_character) or else ((not mask[l_index].is_open) and then (l_index > l_anchor_position)))
+							loop
+								l_found_character := (mask [l_index].is_open and then a_widget.text.item (l_index) /= open_data_character) or else (mask.valid_index (l_caret_position) and then (not mask [l_caret_position].is_open))
+								l_index := l_index + 1
 							end
+							l_new_caret_position := l_index
+--							if l_shift_pressed and then mask [l_caret_position].is_open and then mask.valid_index (mask [l_caret_position].right_closed_index) then
+--								l_new_caret_position := mask [l_caret_position].right_closed_index
+--							elseif l_shift_pressed and then (not mask [l_caret_position].is_open) and then mask.valid_index (mask [l_caret_position].right_open_index) then
+--								l_new_caret_position := mask [l_caret_position].right_open_index
+--								if mask [l_new_caret_position].right_closed_index > 0 then
+--									l_new_caret_position := mask [l_new_caret_position].right_closed_index
+--								else
+--									l_new_caret_position := l_text_length + 1
+--								end
+--							elseif l_shift_pressed then
+--								l_new_caret_position := open_items [open_items.count].index + 1
+--							elseif mask [l_caret_position].is_open and then mask.valid_index (mask [l_caret_position].right_closed_index) then
+--								l_new_caret_position := mask [mask [l_caret_position].right_closed_index].right_open_index
+--							elseif (not mask [l_caret_position].is_open) and then mask.valid_index (mask [l_caret_position].right_open_index) then
+--								l_new_caret_position := mask [l_caret_position].right_open_index
+--							else
+--								l_new_caret_position := open_items [open_items.count].index
+--							end
+--							if (not is_repeating_specification) and then l_shift_pressed and then mask.valid_index (l_new_anchor_position) and then (not mask [l_new_anchor_position].is_open) and then mask [l_new_anchor_position].right_open_index > 0 then
+--								l_move_end_index := l_new_anchor_position = l_new_caret_position
+--								l_new_anchor_position := mask [l_new_anchor_position].right_open_index
+--								if l_move_end_index then
+--									l_new_caret_position := l_new_anchor_position
+--								end
+--							end
+
 						end
 					else
 						if l_has_selection and not l_shift_pressed then
@@ -338,7 +595,13 @@ feature -- Event handling
 								if (l_caret_position > l_anchor_position) and then mask.valid_index (l_caret_position) and then not mask [l_caret_position].is_open and then (mask [l_caret_position].right_open_index > 0) then
 									l_new_caret_position := mask [l_caret_position].right_open_index + 1
 								elseif mask.valid_index (l_caret_position) then
-									l_new_caret_position := l_caret_position + 1
+									from
+										l_new_caret_position := l_caret_position + 1
+									until
+										(not mask.valid_index (l_new_caret_position)) or else mask[l_new_caret_position].is_open
+									loop
+										l_new_caret_position := l_new_caret_position + 1
+									end
 								end
 								if l_new_anchor_position < l_new_caret_position and then not mask [l_new_anchor_position].is_open then
 									l_new_anchor_position := mask [l_new_anchor_position].right_open_index
@@ -370,6 +633,11 @@ feature -- Event handling
 					l_new_caret_position := l_new_anchor_position
 				end
 					-- Handle caret and selection positioning.
+				if l_new_anchor_position /= l_new_caret_position and then not region_contains_open_item (l_new_anchor_position, l_new_caret_position) then
+					l_new_anchor_position := l_new_caret_position
+				elseif l_new_anchor_position < l_new_caret_position and then mask.valid_index (l_new_anchor_position) and then not mask[l_new_anchor_position].is_open then
+					l_new_anchor_position := mask [l_new_anchor_position].right_open_index
+				end
 				set_selection_in_widget (a_widget, l_new_anchor_position, l_new_caret_position)
 			end
 		end
@@ -413,28 +681,6 @@ feature -- Event handling
 			end
 				-- Handle caret and selection positioning.
 			set_selection_in_widget (a_widget, l_new_anchor_position, l_new_caret_position)
-		end
-
-	handle_select_all (a_widget: EV_TEXT_COMPONENT)
-			-- <Precursor>
-		local
-			l_start_index, l_end_index: INTEGER
-		do
-			if is_repeating_specification then
-				Precursor (a_widget)
-			else
-				across mask as ic_mask loop
-					if ic_mask.item.is_open then
-						if l_start_index = 0 then
-							l_start_index := ic_mask.cursor_index
-						end
-						l_end_index := ic_mask.cursor_index
-					end
-				end
-				if l_start_index > 0 then
-					a_widget.set_selection (l_start_index, l_end_index + 1)
-				end
-			end
 		end
 
 feature {TEST_SET_BRIDGE} -- Implementation
@@ -517,7 +763,7 @@ feature {TEST_SET_BRIDGE} -- Implementation
 						l_result.extend (l_mask_item.character_to_display)
 					elseif l_mask_item.is_required then
 						l_result.extend (l_mask_item.character_to_display)
-						if not l_has_reported_illegal_characters and not allow_spaces then
+						if not l_has_reported_illegal_characters then
 							l_has_reported_illegal_characters := True
 							if not l_error_message.is_empty then
 								l_error_message.extend (' ')
@@ -636,8 +882,6 @@ feature {TEST_SET_BRIDGE} -- Implementation
 
 	insert_string (a_widget: EV_TEXT_COMPONENT; a_text: STRING_32)
 			-- Insert `a_insert' at caret_position of `a_widget'
-		require else
-			not_has_selection: not a_widget.has_selection
 		local
 			l_string, l_conforming_text: STRING_32
 			l_caret_position: INTEGER
@@ -659,9 +903,6 @@ feature {TEST_SET_BRIDGE} -- Implementation
 					l_string.insert_string (l_conforming_text, l_caret_position)
 					update_text_and_caret_position (a_widget, l_string, l_caret_position + l_conforming_text.count)
 				else
-					if a_widget.has_selection then
-						replace_selection (a_widget, "")
-					end
 					from
 						l_mask_index := a_widget.caret_position
 						if mask.valid_index (l_mask_index) and then not mask [l_mask_index].is_open then
@@ -911,6 +1152,7 @@ feature {TEST_SET_BRIDGE} -- Implementation
 			open_item_count := l_open_items.count.as_natural_32
 			mask := l_mask.to_array
 			open_items := l_open_items.to_array
+			is_delete_mode := mask_is_unitary (mask)
 			if open_item_count < 1 then
 				log_error ("initialize_from_mask_string", "mask_specification_must_be_open_to_input", <<["mask", mask_specification]>>)
 				report_invalid_mask_specification
@@ -954,8 +1196,8 @@ feature {TEST_SET_BRIDGE} -- Implementation
 						l_mask_item := mask [ic_index.item]
 						l_character := a_string [ic_index.cursor_index + l_mask_offset]
 						if l_mask_item.is_open then
-							if l_mask_item.is_required and not allow_spaces then
-								l_is_incomplete := l_is_incomplete or else (l_character = ' ' or else not l_mask_item.is_valid_character (l_character))
+							if l_mask_item.is_required then
+								l_is_incomplete := l_is_incomplete or else (not l_mask_item.is_valid_character (l_character))
 							end
 							l_result.extend (l_character)
 						end
@@ -1064,7 +1306,9 @@ feature {TEST_SET_BRIDGE} -- Implementation
 			-- <Precursor>
 		do
 			if (not is_repeating_specification) and then (not a_widget.has_selection) and then (not a_widget.text.is_empty)  then
-				if
+				if a_widget.selected_text.same_string (a_widget.text) then
+					-- Do Nothing; select all is legal
+				elseif
 					(not mask.valid_index (a_widget.caret_position)) or else
 					((not mask [a_widget.caret_position].is_open) and then (mask [a_widget.caret_position].right_open_index = 0))
 				then
@@ -1078,21 +1322,42 @@ feature {TEST_SET_BRIDGE} -- Implementation
 	region_contains_open_item (a_start_position, a_end_position: INTEGER_32): BOOLEAN
 			-- Does mask contain an open item between `a_start_position' and `a_end_position'?
 		require
-			not_repeating_mask: not is_repeating_specification
 			non_zero_start_position: a_start_position > 0
 			non_zero_end_position: a_end_position > 0
 		local
 			l_index: INTEGER_32
 		do
-			from
-				l_index := a_start_position.min (a_end_position)
-			until
-				Result or else (not mask.valid_index (l_index)) or else (l_index > a_start_position.max (a_end_position))
-			loop
-				Result := mask [l_index].is_open
-				l_index := l_index + 1
+			if is_repeating_specification then
+				Result := True
+			else
+				from
+					l_index := a_start_position.min (a_end_position)
+				until
+					Result or else (not mask.valid_index (l_index)) or else (l_index > a_start_position.max (a_end_position))
+				loop
+					Result := mask [l_index].is_open
+					l_index := l_index + 1
+				end
 			end
+		end
 
+	mask_is_unitary (a_mask: ARRAY [MASK_ITEM_SPECIFICATION]): BOOLEAN
+			-- Does mask contain only a single kind of MASK_ITEM_SPECIFICATION (ignoring literals)
+		local
+			l_last_item: detachable MASK_ITEM_SPECIFICATION
+			l_item: MASK_ITEM_SPECIFICATION
+		do
+			Result := True
+			across a_mask as ic_mask until not Result loop
+				l_item := ic_mask.item
+				if l_item.is_open then
+					Result := 	(not attached l_last_item) or else
+								(attached l_last_item and then l_last_item.is_unitary_to (l_item))
+					if not attached l_last_item then
+						l_last_item := l_item
+					end
+				end
+			end
 		end
 
 feature {NONE} -- Private Data Implementation
@@ -1114,6 +1379,9 @@ feature {NONE} -- Private Data Implementation
 	private_data_character: CHARACTER_32 = ' '
 		-- Character used to mask private data.
 
+	open_data_character: CHARACTER_32 = ' '
+		-- Character displayed when a non-repeating mask
+
 feature {NONE} -- Privacy mode implementation
 
 	private_data_mode: NATURAL_8
@@ -1132,6 +1400,41 @@ invariant
 	open_items_all_open: not is_invalid implies across open_items as ic_open_item all ic_open_item.item.is_open end
 
 ;note
+	operations: "[
+		This note entry is here to offer you instruction on how to effectively and quickly
+		navigate through the documentation of this library and its clusters and classes.
+
+		Virtues of Clickable-view & Notes
+		=================================
+		When viewing notes in the editor, embedded references which are Pick-and-Droppable in
+		the Clickable-view are not when in the general editing view. Moreover, only classes
+		which are "in-system" will have their features, clients, supplies, and so on viewable
+		in the various tools. Therefore, based on these items, you will want to pick-and-drop
+		"in-system" "classes-of-interest" (your interest) into the Class-tool and select the
+		Clickable-view tool as your primary reader -OR- you will want to change the editor to
+		the Clickable-view in order to explore (i.e. you are learning and not coding, so you
+		want to use the Clickable-view in the editor to explore with while learning).
+
+		One will find an advantage by viewing the class and its notes in the editor under the
+		Clickable-view. When this is so, you may pick and drop a CLASS or Feature reference to
+		the Class or Feature tool in this IDE.
+
+		Known Editor Bugs
+		=================
+		There are presently bugs in the Eiffel Studio editor that work against good documentation
+		exploration in the Clickable-view. Primarily, Tab characters and Unicode characters will
+		be removed from the view in Clickable-view, but are shown in the Editable-view. Clearly,
+		this behavior is against the purpose of the Clickable-view.
+		]"
+	glossary: "Definition of Terms"
+	term: "[
+		Clickable-view: Pick-and-drop a CLASS to the Class-tool and select the Clickable-view
+		]"
+	term: "[
+		In-system: A class is termed "in-system" when it is referenced by a Client, which is
+		in-turn referenced by another Client, and all the way back to the "root-class" of the
+		system (see Project Settings or ECF file for root-class definition).
+		]"
 	copyright: "Copyright (c) 2010-2014"
 	copying: "[
 			All source code and binary programs included in Masking
