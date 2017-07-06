@@ -26,7 +26,8 @@ inherit
 			is_valid_character_for_mask,
 			handle_key_string,
 			refresh_number_formatting,
-			update_text_and_caret_position
+			update_text_and_caret_position,
+			right_limit_offset
 		end
 
 feature -- Status Report
@@ -770,7 +771,7 @@ feature {TEST_SET_BRIDGE} -- Implementation
 		end
 
 ;note
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2017"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT
