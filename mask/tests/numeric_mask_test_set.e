@@ -21,7 +21,7 @@ feature -- Tests
 			create l_mask.make (4)
 			create l_field
 				-- Apply mask to field (e.g. mask is a factory that know how to set itself up on the widget).
-			l_mask.add_text_widget (l_field)
+			l_mask.initialize_masking_widget_events (l_field)
 			assert_strings_equal ("empty_at_creation", "", l_field.text)
 		end
 
@@ -35,7 +35,7 @@ feature -- Tests
 			create l_mask.make (2, 5) -- like $999.99 is our goal (5 total digits, 2 decimal places)
 			create l_field
 				-- Apply mask to field (e.g. mask is a factory that know how to set itself up on the widget).
-			l_mask.add_text_widget (l_field)
+			l_mask.initialize_masking_widget_events (l_field)
 			assert_strings_equal ("empty_at_creation", "", l_field.text)
 		end
 
@@ -623,7 +623,7 @@ feature {NONE} -- Implementation
 		end
 
 note
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2017"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT

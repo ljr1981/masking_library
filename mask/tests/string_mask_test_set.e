@@ -49,7 +49,7 @@ feature -- Tests
 			create l_mask.make ("(999) 999-9999")
 			create l_field
 			--| Set up the mask to properly process keystrokes in the field
-			l_mask.add_text_widget (l_field)
+			l_mask.initialize_masking_widget_events (l_field)
 			--| Set a masked value into the field
 			--| Note: In general, masked text should be placed in the field before accepting user keystrokes
 			--| as some masks cannot process keystrokes on an empty field
@@ -82,7 +82,7 @@ feature -- Tests
 			create l_mask.make ("99/99/9999")
 			create l_field
 			--| Set up the mask to properly process keystrokes in the field
-			l_mask.add_text_widget (l_field)
+			l_mask.initialize_masking_widget_events (l_field)
 			--| Set a masked value into the field
 			--| Note: In general, masked text should be placed in the field before accepting user keystrokes
 			--| as some masks cannot process keystrokes on an empty field
@@ -269,7 +269,7 @@ feature {NONE} -- Implementation
 		end
 
 note
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2017"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT

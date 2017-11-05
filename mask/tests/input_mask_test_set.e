@@ -151,7 +151,7 @@ feature -- Tests
 			create l_widget
 			create l_mask.make ("!")
 			assert ("no_configurable_target_menu_handler", l_widget.configurable_target_menu_handler = Void)
-			l_mask.add_text_widget (l_widget)
+			l_mask.initialize_masking_widget_events (l_widget)
 			assert ("is_menu_mode", l_widget.mode_is_configurable_target_menu)
 			assert ("has_configurable_target_menu_handler", l_widget.configurable_target_menu_handler /= Void)
 		end
@@ -1071,7 +1071,7 @@ feature {NONE} -- Constants
 	anchor_character: CHARACTER_32 = '!'
 
 note
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2017"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT
