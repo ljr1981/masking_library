@@ -39,6 +39,7 @@ feature {NONE} -- Initialization
 			create label.make_with_text (caption)
 			create_mask
 			create_interface_objects
+			content := a_content
 			set_masking (a_content)
 			box.extend (label)
 			box.extend (widget)
@@ -47,10 +48,12 @@ feature {NONE} -- Initialization
 			widget.set_minimum_width (Widget_minimum_width)
 			box.set_border_width (3)
 			box.set_padding (3)
+			widget_ref := widget
 		ensure
 			caption_set: caption.same_string (a_caption)
 			box_has_label: box.has (label)
 			box_has_widget: box.has (widget)
+			widget_ref_set: widget_ref ~ widget
 		end
 
 	make_with_caption_and_pattern (a_caption: like caption; a_mask_pattern: like mask_pattern_string; a_content: C)
@@ -75,6 +78,21 @@ feature {NONE} -- Initialization
 feature -- Access
 
 	box: B
+
+	text: attached like widget.text
+		do
+			Result := widget.text
+		end
+
+	content: C
+
+	widget_ref: T
+			-- Reference to `widget' (internal).
+
+	set_text (a_text: like widget.text)
+		do
+			widget.set_text (a_text)
+		end
 
 feature -- Status Report
 
@@ -214,7 +232,7 @@ feature {NONE} -- Implementation: Constants
 			-- Minimum size for widget.
 
 ;note
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2017"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT

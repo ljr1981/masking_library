@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-11-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-11-0 http://www.eiffel.com/developers/xml/configuration-1-11-0.xsd" name="test_set_bridge" uuid="FFBE750A-970F-4451-8697-729CCFDF789F" library_target="test_set_bridge">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-11-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-11-0 http://www.eiffel.com/developers/xml/configuration-1-11-0.xsd" name="test_set_bridge" uuid="FD0C775C-9B60-11E8-98D0-529269FB1459" library_target="test_set_bridge">
 	<target name="test_set_bridge">
 		<root feature="make" class="APPLICATION"/>
 		<option warning="true" void_safety="none">

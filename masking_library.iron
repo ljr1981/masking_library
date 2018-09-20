@@ -1,0 +1,15 @@
+package masking_library
+
+project
+	masking_library = "masking_library.ecf"
+
+note
+	title: Masking Library
+	description: "EV object text masking library"
+
+	tags: vision2,masking,text,ev_text_field
+	license: Eiffel Forum License v2 
+	copyright: 2018 Larry Rix
+	link[license]: http://www.eiffel.com/licensing/forum.txt external
+
+end

@@ -1,0 +1,15 @@
+package database_constraint
+
+project
+	database_constraint = "database_constraint.ecf"
+
+note
+	title: DB Constraint
+	description: "Dependent DB constraint library for Framework and Masking"
+
+	tags: framework,masking
+	license: Eiffel Forum License v2 
+	copyright: 2018 Larry Rix
+	link[license]: http://www.eiffel.com/licensing/forum.txt external
+
+end
