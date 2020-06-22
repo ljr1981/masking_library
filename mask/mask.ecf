@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-13-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-13-0 http://www.eiffel.com/developers/xml/configuration-1-13-0.xsd" name="mask" uuid="86AE9A84-8EE2-4B2E-8416-66F21C347BC7" library_target="mask">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-21-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-21-0 http://www.eiffel.com/developers/xml/configuration-1-21-0.xsd" name="mask" uuid="86AE9A84-8EE2-4B2E-8416-66F21C347BC7" library_target="mask">
 	<description>Eiffel Text Masking Library</description>
 	<target name="mask">
 		<root all_classes="true"/>
 		<version major="1" minor="0" release="0" build="1"/>
 		<file_rule>
+			<exclude>/.git$</exclude>
+			<exclude>/.svn$</exclude>
+			<exclude>/CVS$</exclude>
 			<exclude>/EIFGENs$</exclude>
 			<exclude>/mask_demo_app$</exclude>
-			<exclude>/CVS$</exclude>
-			<exclude>/.svn$</exclude>
-			<exclude>/.git$</exclude>
 			<exclude>/tests$</exclude>
 		</file_rule>
-		<option warning="true" void_safety="transitional" syntax="provisional">
+		<option warning="warning" is_obsolete_routine_type="true" syntax="provisional" manifest_array_type="mismatch_warning">
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
 		</option>
+		<setting name="total_order_on_reals" value="true"/>
+		<setting name="dead_code_removal" value="feature"/>
+		<capability>
+			<concurrency support="none"/>
+			<void_safety support="transitional" use="transitional"/>
+		</capability>
 		<library name="base" location="$ISE_LIBRARY\library\base\base-safe.ecf"/>
 		<library name="database_constraint" location="..\database_constraint\database_constraint.ecf"/>
 		<library name="decimal" location="$ISE_LIBRARY\contrib\library\math\decimal\decimal\decimal-safe.ecf">
-			<option warning="false">
+			<option warning="none">
 			</option>
 		</library>
 		<library name="i18n" location="$ISE_LIBRARY\library\i18n\i18n-safe.ecf"/>
@@ -26,7 +32,7 @@
 		<library name="thread" location="$ISE_LIBRARY\library\thread\thread-safe.ecf"/>
 		<library name="time" location="$ISE_LIBRARY\library\time\time-safe.ecf"/>
 		<library name="vision2" location="$ISE_LIBRARY\library\vision2\vision2-safe.ecf">
-			<option warning="false">
+			<option warning="none">
 				<assertions precondition="true"/>
 			</option>
 		</library>
@@ -57,21 +63,23 @@ However, for a better experience, it is recommended.
 	<target name="mask_demo_app" extends="mask">
 		<root class="MASK_DEMO" feature="make"/>
 		<file_rule>
-			<exclude>/EIFGENs$</exclude>
-			<exclude>/CVS$</exclude>
-			<exclude>/.svn$</exclude>
 			<exclude>/.git$</exclude>
+			<exclude>/.svn$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/EIFGENs$</exclude>
 			<exclude>/tests$</exclude>
 		</file_rule>
+		<setting name="total_order_on_reals" value="false"/>
 		<cluster name="mask_demo_app" location=".\mask_demo_app\" recursive="true"/>
 	</target>
 	<target name="test" extends="mask">
 		<root class="MASKING_TEST_ROOT_CLASS" feature="make"/>
 		<file_rule>
-			<exclude>/EIFGENs$</exclude>
-			<exclude>/CVS$</exclude>
 			<exclude>/.svn$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/EIFGENs$</exclude>
 		</file_rule>
+		<setting name="total_order_on_reals" value="false"/>
 		<library name="test_extension" location="..\test_extension\test_extension.ecf"/>
 		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
 		<cluster name="tests" location=".\tests\" recursive="true">

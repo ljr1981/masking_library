@@ -1,4 +1,4 @@
-note 
+note
 	description: "[
 			A Decimal Value Input mask is a {NUMERIC_INPUT_MASK} that only allows for numeric and `.' input.
 	purpose: "[
@@ -24,7 +24,6 @@ inherit
 	NUMERIC_VALUE_INPUT_MASK [DECIMAL, DECIMAL_COLUMN_METADATA]
 		redefine
 			is_valid_constraint,
-			remove_implementation,
 			fix_pointer_position_implementation,
 			format_as_number,
 			handle_key_back_space,
@@ -628,7 +627,7 @@ note
 		in-turn referenced by another Client, and all the way back to the "root-class" of the
 		system (see Project Settings or ECF file for root-class definition).
 		]"
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2020"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT

@@ -1,4 +1,4 @@
-note 
+note
 	description: "[
 			A Preset Mask Item is a {MASK_ITEM_SPECIFICATION} which locks a character to a specific index in a masked field.
 			]"
@@ -11,7 +11,7 @@ deferred class
 inherit
 	MASK_ITEM_SPECIFICATION
 		redefine
-			character_for_character, character_to_display, is_valid_character, is_strict
+			character_for_character, character_to_display, is_valid_character
 		end
 
 feature -- Access
@@ -33,11 +33,7 @@ feature -- Access
 
 feature -- Status Report
 
-	is_strict: BOOLEAN
-			-- <Precursor>
-		do
-			Result := True
-		end
+	is_strict: BOOLEAN = True
 
 	is_valid_character (a_character: CHARACTER_32): BOOLEAN
 			-- <Precursor>
@@ -81,7 +77,7 @@ note
 		in-turn referenced by another Client, and all the way back to the "root-class" of the
 		system (see Project Settings or ECF file for root-class definition).
 		]"
-	copyright: "Copyright (c) 2010-2014"
+	copyright: "Copyright (c) 2010-2020"
 	copying: "[
 			All source code and binary programs included in Masking
 			are distributed under the terms and conditions of the MIT
